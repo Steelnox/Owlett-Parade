@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: PlayerMaxHealth
   m_EditorClassIdentifier: Assembly-CSharp::IntValue
-  resetAfterPlay: 0
-  diskValue: 10
+  value: 10
