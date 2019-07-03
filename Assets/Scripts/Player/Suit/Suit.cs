@@ -18,8 +18,8 @@ public class Suit : MonoBehaviour
     [SerializeField] private IntValue maxArmor;
     [SerializeField] private IntValue currentArmor;
 
-    public int MaxArmor { get => maxArmor.value; set => maxArmor.value = value; }
-    public int CurrentArmor { get => currentArmor.value; set => currentArmor.value = value; }
+    public int MaxArmor { get => maxArmor.runtimeValue; set => maxArmor.runtimeValue = value; }
+    public int CurrentArmor { get => currentArmor.runtimeValue; set => currentArmor.runtimeValue = value; }
 
     [SerializeField] private Controller controller;
 

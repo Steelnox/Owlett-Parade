@@ -6,13 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData")]
 public class IntValue : ScriptableObject, ISerializationCallbackReceiver
 {
-    [NonSerialized] public int value;
+    [NonSerialized] public int runtimeValue;
 
-    [SerializeField] private bool resetAfterPlay;
+    public int value;
 
-    public int diskValue;
-
-    public void OnAfterDeserialize() { if (resetAfterPlay) value = diskValue; }
+    public void OnAfterDeserialize() { runtimeValue = value; }
 
     public void OnBeforeSerialize() { }
 }

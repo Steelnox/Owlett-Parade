@@ -7,8 +7,8 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
     [SerializeField] private IntValue maxHealth;
     [SerializeField] private IntValue currentHealth;
 
-    public int MaxHealth { get => maxHealth.value; set => maxHealth.value = value; }
-    public int CurrentHealth { get => currentHealth.value; set => currentHealth.value = value; }
+    public int MaxHealth { get => maxHealth.runtimeValue; set => maxHealth.runtimeValue = value; }
+    public int CurrentHealth { get => currentHealth.runtimeValue; set => currentHealth.runtimeValue = value; }
 
     [SerializeField] private Controller controller => Controller.instance;
 
