@@ -633,9 +633,17 @@ MonoBehaviour:
   - {fileID: 341033384968875095}
   - {fileID: 341033385895989039}
   - {fileID: 341033385838542343}
+  currentSuit: {fileID: 0}
+  chamberSuit: {fileID: 0}
   chamberSuitImage: {fileID: 341033386270699822}
-  suitHealth: {fileID: 11400000, guid: d57100ba416577f4cb0eb30d62e52046, type: 2}
-  suitMaxHealth: {fileID: 11400000, guid: 4b8f980f83e5f0e47a739c75a9732210, type: 2}
+  lightSuitHealth: {fileID: 11400000, guid: d57100ba416577f4cb0eb30d62e52046, type: 2}
+  lightSuitMaxHealth: {fileID: 11400000, guid: 4b8f980f83e5f0e47a739c75a9732210, type: 2}
+  heavySuitHealth: {fileID: 11400000, guid: 13bcd02dedaa19d43ad9668c573b39a9, type: 2}
+  heavySuitMaxHealth: {fileID: 11400000, guid: c2a0ba438e372b942b9a97d2e8c30451, type: 2}
+  ccSuitHealth: {fileID: 0}
+  ccSuitMaxHealth: {fileID: 0}
+  suitHealth: {fileID: 0}
+  suitMaxHealth: {fileID: 0}
   suitHealthBar: {fileID: 341033386935834960}
   suitHealthText: {fileID: 341033385464423231}
   dashCharges: {fileID: 11400000, guid: f36317886ee74004bbf04cd872541041, type: 2}
