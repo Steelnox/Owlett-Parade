@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CooldownManager : MonoBehaviour
 {
@@ -32,6 +33,20 @@ public class CooldownManager : MonoBehaviour
     {
         skill.available = true;
     }
+
+    public void SetCooldownAction(float time, UnityAction callback)
+    {
+        StartCoroutine(ActionCooldown(time, callback));
+    }
+
+    public IEnumerator ActionCooldown(float time, UnityAction callback)
+    {
+        yield return new WaitForSeconds(time);
+
+        callback?.Invoke();
+    }
+
+    #region TimeChanges (REFACTOR NEEDED)
 
     public void SetTime()
     {
@@ -69,4 +84,6 @@ public class CooldownManager : MonoBehaviour
 
         Time.timeScale = 1;
     }
+
+    #endregion
 }

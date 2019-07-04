@@ -12,8 +12,21 @@ public class Dash : State
 
     public bool mouseDirection = false;
 
+    public IntValue charges;
+    public IntValue Maxcharges;
+
+    public float dashReloadTime = 1.5f;
+
+    private bool reloading;
+
     public override void Enter()
     {
+        if (charges.RuntimeValue < 1) { controller.ChangeState(controller.idle); return; }
+
+        charges.RuntimeValue -= 1;
+
+        Reload();
+
         controller = Controller.instance;
 
         controller.suitAnimator.SetBool("Dashing", true);
@@ -39,5 +52,23 @@ public class Dash : State
         yield return new WaitForSeconds(dashDuration);
 
         controller.ReturnToBaseState();
+    }
+
+    public void Reload()
+    {
+        if (reloading) return;
+
+        reloading = true;
+
+        CooldownManager.instance.SetCooldownAction(dashReloadTime, GainCharge);
+    }
+
+    public void GainCharge()
+    {
+        if (charges.RuntimeValue < Maxcharges.RuntimeValue) charges.RuntimeValue += 1;
+
+        reloading = false;
+
+        if (charges.RuntimeValue < Maxcharges.RuntimeValue) Reload();
     }
 }

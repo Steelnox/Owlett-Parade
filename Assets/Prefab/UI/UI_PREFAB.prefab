@@ -621,6 +621,12 @@ MonoBehaviour:
   suitMaxHealth: {fileID: 11400000, guid: 4b8f980f83e5f0e47a739c75a9732210, type: 2}
   suitHealthBar: {fileID: 341033386935834960}
   suitHealthText: {fileID: 341033385464423231}
+  dashCharges: {fileID: 11400000, guid: f36317886ee74004bbf04cd872541041, type: 2}
+  dashMaxCharges: {fileID: 11400000, guid: c5db35d5d35a9b944876f7f4abf9809f, type: 2}
+  dashGauge:
+  - {fileID: 341033386917551080}
+  - {fileID: 341033385759645180}
+  - {fileID: 341033385203991741}
 --- !u!1 &341033385759645182
 GameObject:
   m_ObjectHideFlags: 0

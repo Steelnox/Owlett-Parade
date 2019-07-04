@@ -6,11 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData")]
 public class IntValue : ScriptableObject, ISerializationCallbackReceiver
 {
-    public delegate void OnVariableChangeDelegate();
-    public event OnVariableChangeDelegate OnVariableChange;
+    public delegate void OnValueChangeDelegate();
+    public event OnValueChangeDelegate OnValueChange;
 
     private int runtimeValue;
-    public int RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnVariableChange(); } }
+    public int RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange(); } }
 
     public int value;
 

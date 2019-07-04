@@ -23,12 +23,20 @@ public class UI_Behaviour : MonoBehaviour
     public Image suitHealthBar;
     public Text suitHealthText;
 
+    [Header("Dash Gauge")]
+    public IntValue dashCharges;
+    public IntValue dashMaxCharges;
+
+    public List<Image> dashGauge;
+
+
     private void Start()
     {
         SetListeners();
 
         UpdatePlayerHealth();
         UpdateSuitHealth();
+        UpdateDashGauge();
     }
 
     public void UpdatePlayerHealth()
@@ -51,15 +59,19 @@ public class UI_Behaviour : MonoBehaviour
         suitHealthText.text = suitHealth.RuntimeValue + " / " + suitMaxHealth.RuntimeValue;
     }
 
-    public void UpdateChamberSuit()
+    public void UpdateDashGauge()
     {
-
+        for (int i = dashMaxCharges.RuntimeValue - 1; i >= 0; i--)
+        {
+            dashGauge[i].enabled = i > dashCharges.RuntimeValue - 1 ? false : true;
+        }
     }
 
     private void SetListeners()
     {
-        health.OnVariableChange += UpdatePlayerHealth;
-        armor.OnVariableChange += UpdatePlayerHealth;
-        suitHealth.OnVariableChange += UpdateSuitHealth;
+        health.OnValueChange += UpdatePlayerHealth;
+        armor.OnValueChange += UpdatePlayerHealth;
+        suitHealth.OnValueChange += UpdateSuitHealth;
+        dashCharges.OnValueChange += UpdateDashGauge;
     }
 }
