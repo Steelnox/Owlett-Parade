@@ -15,13 +15,13 @@ public class Dash : State
     public IntValue charges;
     public IntValue Maxcharges;
 
-    public float dashReloadTime = 1.5f;
+    public FloatValue dashReloadTime;
 
     private bool reloading;
 
     public override void Enter()
     {
-        if (charges.RuntimeValue < 1) { controller.ChangeState(controller.idle); return; }
+        if (charges.RuntimeValue < 1) { controller.ReturnToBaseState(); return; }
 
         charges.RuntimeValue -= 1;
 
@@ -60,7 +60,7 @@ public class Dash : State
 
         reloading = true;
 
-        CooldownManager.instance.SetCooldownAction(dashReloadTime, GainCharge);
+        CooldownManager.instance.SetCooldownAction(dashReloadTime.value, GainCharge);
     }
 
     public void GainCharge()

@@ -28,7 +28,6 @@ public class Suit : MonoBehaviour
     private void Start()
     {
         suitHealthSystem = GetComponent<IHealth>();
-
     }
 
     public int DecreaseArmor(int amount)

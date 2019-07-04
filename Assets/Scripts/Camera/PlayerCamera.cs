@@ -33,6 +33,8 @@ public class PlayerCamera : MonoBehaviour
         float distance = (target.transform.position - transform.position).magnitude;
 
         transform.position = target.transform.position - transform.forward * distance;
+
+        SetOffset();
     }
 
     public void SetOffset()

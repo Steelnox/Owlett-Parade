@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SuitHealthSystem : MonoBehaviour, IHealth
 {
-    [SerializeField] private IntValue maxHealth;
-    [SerializeField] private IntValue currentHealth;
+    [SerializeField] public IntValue maxHealth;
+    [SerializeField] public IntValue currentHealth;
 
     public int MaxHealth { get => maxHealth.RuntimeValue; set => maxHealth.RuntimeValue = value; }
     public int CurrentHealth { get => currentHealth.RuntimeValue; set => currentHealth.RuntimeValue = value; }
@@ -38,5 +38,4 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
 
         gameObject.SetActive(false);
     }
-
 }

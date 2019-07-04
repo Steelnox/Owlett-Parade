@@ -32,6 +32,7 @@ public class Walk : State
     {
         controller.movement = Vector3.zero;
         controller.suitAnimator.SetBool("Moving", false);
+        controller.rigidBody.velocity = Vector3.zero;
     }
 
     private void GetInput()
@@ -51,7 +52,7 @@ public class Walk : State
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
         {
             controller.movement = Vector3.zero;
             controller.ChangeState(controller.dash);

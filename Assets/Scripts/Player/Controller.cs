@@ -37,6 +37,9 @@ public class Controller : MonoBehaviour
     public Suit currentSuit;
     public Suit chamberSuit;
 
+    public delegate void OnSuitChangeDelegate();
+    public event OnSuitChangeDelegate OnSuitChange;
+
     public Animator suitAnimator;
     public IHealth healthSystem;
 
@@ -45,8 +48,6 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        healthSystem = GetComponent<IHealth>();
-
         cooldownManager = CooldownManager.instance;
 
         ChangeState(idle);
@@ -59,6 +60,7 @@ public class Controller : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q)) ChangeSuit();
             //else if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
             if (currentSuit == null) return;
+
             if (Input.GetButtonDown(currentSuit.attack.button) && currentSuit.attack.available) ChangeState(currentSuit.attack);
             if (Input.GetButtonDown(currentSuit.ability1.button) && currentSuit.ability1.available) ChangeState(currentSuit.ability1);
             if (Input.GetButtonDown(currentSuit.ability2.button) && currentSuit.ability2.available) ChangeState(currentSuit.ability2);
@@ -78,8 +80,11 @@ public class Controller : MonoBehaviour
             Suit tempSuit = currentSuit;
 
             currentSuit = chamberSuit;
+            OnSuitChange();
+            print("FFS");
             currentSuit.EquipSuit();
             chamberSuit = tempSuit;
+            OnSuitChange();
         }
     }
 

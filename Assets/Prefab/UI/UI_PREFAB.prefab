@@ -234,8 +234,9 @@ GameObject:
   - component: {fileID: 341033385203991742}
   - component: {fileID: 341033385203991740}
   - component: {fileID: 341033385203991741}
+  - component: {fileID: 712060866}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: DashImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,15 +289,31 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d2c67b8586ae6954eb70bec3573be978, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &712060866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341033385203991743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a9d120eff188e43b7e225ebd61dee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 341033385203991741}
+  reloadTime: {fileID: 11400000, guid: c5245dc99a2339d4395624db7efc4035, type: 2}
+  timer: 0
+  reloading: 0
 --- !u!1 &341033385464423361
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +633,7 @@ MonoBehaviour:
   - {fileID: 341033384968875095}
   - {fileID: 341033385895989039}
   - {fileID: 341033385838542343}
-  chamberSuit: {fileID: 0}
+  chamberSuitImage: {fileID: 341033386270699822}
   suitHealth: {fileID: 11400000, guid: d57100ba416577f4cb0eb30d62e52046, type: 2}
   suitMaxHealth: {fileID: 11400000, guid: 4b8f980f83e5f0e47a739c75a9732210, type: 2}
   suitHealthBar: {fileID: 341033386935834960}
@@ -624,9 +641,9 @@ MonoBehaviour:
   dashCharges: {fileID: 11400000, guid: f36317886ee74004bbf04cd872541041, type: 2}
   dashMaxCharges: {fileID: 11400000, guid: c5db35d5d35a9b944876f7f4abf9809f, type: 2}
   dashGauge:
-  - {fileID: 341033386917551080}
-  - {fileID: 341033385759645180}
-  - {fileID: 341033385203991741}
+  - {fileID: 1063290193}
+  - {fileID: 1434149928}
+  - {fileID: 712060866}
 --- !u!1 &341033385759645182
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,8 +655,9 @@ GameObject:
   - component: {fileID: 341033385759645181}
   - component: {fileID: 341033385759645179}
   - component: {fileID: 341033385759645180}
+  - component: {fileID: 1434149928}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: DashImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,15 +710,31 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d2c67b8586ae6954eb70bec3573be978, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1434149928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341033385759645182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a9d120eff188e43b7e225ebd61dee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 341033385759645180}
+  reloadTime: {fileID: 11400000, guid: c5245dc99a2339d4395624db7efc4035, type: 2}
+  timer: 0
+  reloading: 0
 --- !u!1 &341033385838542345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,8 +1226,9 @@ GameObject:
   - component: {fileID: 341033386917551081}
   - component: {fileID: 341033386917551079}
   - component: {fileID: 341033386917551080}
+  - component: {fileID: 1063290193}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DashImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,15 +1281,31 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: d2c67b8586ae6954eb70bec3573be978, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1063290193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341033386917551082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a9d120eff188e43b7e225ebd61dee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 341033386917551080}
+  reloadTime: {fileID: 11400000, guid: c5245dc99a2339d4395624db7efc4035, type: 2}
+  timer: 0
+  reloading: 0
 --- !u!1 &341033386935834962
 GameObject:
   m_ObjectHideFlags: 0

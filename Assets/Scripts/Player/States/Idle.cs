@@ -15,16 +15,12 @@ public class Idle : State
     {
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) controller.ChangeState(controller.walk);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
         {
             controller.ChangeState(controller.dash);
 
             return;
         }
-
-        Walk walk = controller.walk as Walk;
-
-        walk.Move();
     }
 
     public override void Exit() { }

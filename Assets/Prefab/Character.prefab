@@ -136,8 +136,7 @@ MonoBehaviour:
   mouseDirection: 0
   charges: {fileID: 11400000, guid: f36317886ee74004bbf04cd872541041, type: 2}
   Maxcharges: {fileID: 11400000, guid: c5db35d5d35a9b944876f7f4abf9809f, type: 2}
-  dashReloadTime: 5
-  reloading: 0
+  dashReloadTime: {fileID: 11400000, guid: c5245dc99a2339d4395624db7efc4035, type: 2}
 --- !u!54 &3555529927941697227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -589,6 +588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409911651285629041, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: cost
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5957400516653405153, guid: 2a78cf91763460548920074c3b323869,
         type: 3}
