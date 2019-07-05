@@ -633,8 +633,8 @@ MonoBehaviour:
   - {fileID: 341033384968875095}
   - {fileID: 341033385895989039}
   - {fileID: 341033385838542343}
-  currentSuit: {fileID: 0}
-  chamberSuit: {fileID: 0}
+  currentSuit: {fileID: 11400000, guid: aed71c751a791f94281ede146da2dce7, type: 2}
+  chamberSuit: {fileID: 11400000, guid: 18c93f2b7f5f1c74ca18c4f9f0c6a1a5, type: 2}
   chamberSuitImage: {fileID: 341033386270699822}
   lightSuitHealth: {fileID: 11400000, guid: d57100ba416577f4cb0eb30d62e52046, type: 2}
   lightSuitMaxHealth: {fileID: 11400000, guid: 4b8f980f83e5f0e47a739c75a9732210, type: 2}

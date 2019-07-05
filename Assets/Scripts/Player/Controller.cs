@@ -37,8 +37,8 @@ public class Controller : MonoBehaviour
     public Suit currentSuit;
     public Suit chamberSuit;
 
-    public delegate void OnSuitChangeDelegate();
-    public event OnSuitChangeDelegate OnSuitChange;
+    public SuitValue currentSuitValue;
+    public SuitValue chamberSuitValue;
 
     public Animator suitAnimator;
     public IHealth healthSystem;
@@ -80,11 +80,11 @@ public class Controller : MonoBehaviour
             Suit tempSuit = currentSuit;
 
             currentSuit = chamberSuit;
-            OnSuitChange();
-            print("FFS");
+            currentSuitValue.RuntimeValue = currentSuit;
+
             currentSuit.EquipSuit();
             chamberSuit = tempSuit;
-            OnSuitChange();
+            chamberSuitValue.RuntimeValue = chamberSuit;
         }
     }
 

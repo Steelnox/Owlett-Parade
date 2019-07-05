@@ -47,7 +47,7 @@ public class Suit : MonoBehaviour
 
     public void EquipSuit()
     {
-        controller.currentSuit = this;
+        controller.currentSuitValue.RuntimeValue = controller.currentSuit = this;
         controller.suitAnimator = suitAnimator;
 
         if (suitHealthSystem == null) suitHealthSystem = GetComponent<IHealth>();

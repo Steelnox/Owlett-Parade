@@ -7,44 +7,52 @@ using UnityEngine.UI;
 public class UI_Behaviour : MonoBehaviour
 {
     [Header("Health & Armor")]
-    public IntValue health;
-    public IntValue maxHealth;
-    public List<Image> HealthImages;
 
-    public IntValue armor;
-    public IntValue maxArmor;
-    public List<Image> ArmorImages;
+    [SerializeField] private IntValue health;
+    [SerializeField] private IntValue maxHealth;
+    [SerializeField] private List<Image> HealthImages;
 
+    [SerializeField] private IntValue armor;
+    [SerializeField] private IntValue maxArmor;
+    [SerializeField] private List<Image> ArmorImages;
+
+    [Space]
     [Header("Suit Health & Chamber")]
-    public Suit currentSuit;
-    public Suit chamberSuit;
-    public Image chamberSuitImage;
+    [Space]
 
-    public IntValue lightSuitHealth;
-    public IntValue lightSuitMaxHealth;
-    public IntValue heavySuitHealth;
-    public IntValue heavySuitMaxHealth;
-    public IntValue ccSuitHealth;
-    public IntValue ccSuitMaxHealth;
+    [SerializeField] private SuitValue currentSuit;
+    [SerializeField] private SuitValue chamberSuit;
 
-    public IntValue suitHealth;
-    public IntValue suitMaxHealth;
+    [SerializeField] private Image chamberSuitImage;
 
-    public Image suitHealthBar;
-    public Text suitHealthText;
+    [Space]
 
+    [SerializeField] private IntValue lightSuitHealth;
+    [SerializeField] private IntValue lightSuitMaxHealth;
+    [SerializeField] private IntValue heavySuitHealth;
+    [SerializeField] private IntValue heavySuitMaxHealth;
+    [SerializeField] private IntValue ccSuitHealth;
+    [SerializeField] private IntValue ccSuitMaxHealth;
+
+    private IntValue suitHealth;
+    private IntValue suitMaxHealth;
+
+    [Space]
+
+    [SerializeField] private Image suitHealthBar;
+    [SerializeField] private Text suitHealthText;
+
+    [Space]
     [Header("Dash Gauge")]
-    public IntValue dashCharges;
-    public IntValue dashMaxCharges;
+    [Space]
 
-    public List<DashRechargeImage> dashGauge;
+    [SerializeField] private IntValue dashCharges;
+    [SerializeField] private IntValue dashMaxCharges;
 
-    private Controller controller;
+    [SerializeField] private List<DashRechargeImage> dashGauge;
 
     private void Start()
     {
-        controller = Controller.instance;
-
         SetSuit();
         SetListeners();
 
@@ -57,10 +65,7 @@ public class UI_Behaviour : MonoBehaviour
     {
         if (suitHealth) suitHealth.OnValueChange -= UpdateSuitHealth;
 
-        currentSuit = controller.currentSuit;
-        chamberSuit = controller.chamberSuit;
-
-        switch (currentSuit.suitType)
+        switch (currentSuit.RuntimeValue.suitType)
         {
             case Suit.SuitType.LIGHT:
                 suitHealth = lightSuitHealth;
@@ -134,7 +139,7 @@ public class UI_Behaviour : MonoBehaviour
 
         if (!chamberSuit) return;
 
-        switch (chamberSuit.suitType)
+        switch (chamberSuit.RuntimeValue.suitType)
         {
             case Suit.SuitType.NONE:
                 imageColor = Color.black;
@@ -159,7 +164,9 @@ public class UI_Behaviour : MonoBehaviour
         armor.OnValueChange += UpdatePlayerHealth;
         dashCharges.OnValueChange += UpdateDashGauge;
         suitHealth.OnValueChange += UpdateSuitHealth;
-        controller.OnSuitChange += SetSuit;
-        controller.OnSuitChange += UpdateChamberSuit;
+        currentSuit.OnValueChange += SetSuit;
+        currentSuit.OnValueChange += UpdateChamberSuit;
+        chamberSuit.OnValueChange += SetSuit;
+        chamberSuit.OnValueChange += UpdateChamberSuit;
     }
 }

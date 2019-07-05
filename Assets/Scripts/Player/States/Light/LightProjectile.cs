@@ -24,7 +24,11 @@ public class LightProjectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Floor")) return;
-        if (other.CompareTag("Monster")) other.GetComponent<Enemy>().OnHit(damage);
+        if (other.CompareTag("Monster"))
+        {
+            StartCoroutine(PlayerCamera.instance.ShakeObject(0.1f, 0.3f, other.transform));
+            other.GetComponent<Enemy>().OnHit(damage);
+        }
 
         Instantiate(particles, transform.position, Quaternion.identity);
         CooldownManager.instance.StopTime();
