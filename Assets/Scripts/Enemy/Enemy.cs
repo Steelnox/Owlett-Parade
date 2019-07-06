@@ -20,6 +20,11 @@ public abstract class Enemy : MonoBehaviour
     public enum EnemyType { MELEE, RANGED } //If other types needed, just add
     public EnemyType enemyType;
 
+
+
+    public bool CanStagger;
+    private bool stagger;
+
     #region Stats
 
     public int maxHealth;
@@ -28,6 +33,8 @@ public abstract class Enemy : MonoBehaviour
     public float speed;
 
     public float distanceToChase;
+
+    [Tooltip("Distance start preparing the attack")]
     public float distanceToAttack;
 
     #endregion
@@ -35,6 +42,8 @@ public abstract class Enemy : MonoBehaviour
     private void Start()
     {
         player = Controller.instance;
+
+        enemy_navmesh.speed = speed;
 
     }
 
@@ -55,6 +64,18 @@ public abstract class Enemy : MonoBehaviour
     public float GetDistance(Vector3 targetpos)
     {
         return Vector3.Distance(targetpos, transform.position);
+    }
+
+    public bool RandomBool()
+    {
+        return (Random.value > 0.5f);
+    }
+
+    public Vector3 GetDirectionFromTo_N(Vector3 from, Vector3 to)
+    {
+        Vector3 result;
+
+        return result = (to - from).normalized;
     }
 
 }
