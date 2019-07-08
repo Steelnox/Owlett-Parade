@@ -6,14 +6,21 @@ using UnityEngine.AI;
 
 public class TrashEnemy : Enemy
 {
-
     #region States
 
     public State chase;
     public State prepAttack;
     public State attack;
+    public State flee;
 
-    public Material enemyMat;
+    [Tooltip("Distance to start running away from the player")]
+    public float distanceToFlee;
+
+
+    public Renderer myMeshRenderer;
+
+    public Material enemyNormalMat;
+    public Material enemyAngryMat;
 
 
     #endregion
@@ -25,7 +32,6 @@ public class TrashEnemy : Enemy
 
         enemy_navmesh = GetComponent<NavMeshAgent>();
 
-        //enemyMat = GetComponent<Material>();
 
         ChangeState(chase);
     }
@@ -33,6 +39,9 @@ public class TrashEnemy : Enemy
     void Update()
     {
         stateMachine.ExecuteState();
+
+        distanceToPlayer = GetDistance(player.transform.position);
+
         //Debug.Log(currentState);
     }
 }

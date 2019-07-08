@@ -19,7 +19,6 @@ public class PrepAttack_Trash : State
 
         trash = GetComponent<TrashEnemy>();
 
-        trash.enemyMat.color = Color.red;
         trash.enemy_navmesh.isStopped = true;
         timer = 0;
 
@@ -31,17 +30,22 @@ public class PrepAttack_Trash : State
     {
         Quaternion lookOnLook = Quaternion.LookRotation(-directionAttack);
 
-        transform.rotation = Quaternion.Slerp(trash.enemy_navmesh.transform.rotation, lookOnLook, Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(trash.enemy_navmesh.transform.rotation, lookOnLook, Time.deltaTime * 1.5f);
 
 
         if (trash.player.movement == Vector3.zero)
         {
             timer += Time.deltaTime;
+
+            if (timer >= 0.5f) trash.myMeshRenderer.material = trash.enemyAngryMat;
+
             if (timer > timeWaitAttack) trash.ChangeState(trash.attack);
         }
        else
         {
-            trash.ChangeState(trash.chase);
+
+            if (trash.distanceToPlayer <= trash.distanceToFlee) trash.ChangeState(trash.flee);
+            else if (trash.distanceToPlayer <= trash.distanceToChase) trash.ChangeState(trash.chase);
         }
 
     }

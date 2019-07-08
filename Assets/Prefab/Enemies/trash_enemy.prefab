@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5901836399189532722}
   - component: {fileID: 1912877421}
   - component: {fileID: 1912877420}
+  - component: {fileID: 5896730846368859134}
   - component: {fileID: 4507233072456406887}
   - component: {fileID: 8435215786329106131}
   - component: {fileID: 9176934104933608385}
@@ -178,17 +179,22 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy_navmesh: {fileID: 0}
   enemyType: 0
-  CanStagger: 0
+  distanceToPlayer: 0
   maxHealth: 0
   currentHealth: 0
   damage: 1
   speed: 2
-  distanceToChase: 0
+  distanceToChase: 10
   distanceToAttack: 5
+  CanStagger: 0
   chase: {fileID: 1912877420}
   prepAttack: {fileID: 8435215786329106131}
   attack: {fileID: 4507233072456406887}
-  enemyMat: {fileID: 2100000, guid: 6c5f2d2a215fd324fb86a6f1b4cba88f, type: 2}
+  flee: {fileID: 5896730846368859134}
+  distanceToFlee: 4
+  myMeshRenderer: {fileID: 5901836399189532722}
+  enemyNormalMat: {fileID: 2100000, guid: 6c5f2d2a215fd324fb86a6f1b4cba88f, type: 2}
+  enemyAngryMat: {fileID: 2100000, guid: 0074454556839f4468e8c37453b43745, type: 2}
 --- !u!114 &1912877420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +205,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc0109597b24e1c4cbdfd68ba4218ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0, z: 0}
+--- !u!114 &5896730846368859134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514726530182177630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4eade6c1556cc4c93afada70eaeef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}

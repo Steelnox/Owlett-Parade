@@ -43,8 +43,6 @@ public class Attack_Trash : State
     {
         timer += Time.deltaTime;
 
-
-
         if(timer < 1.2f) trash.enemy_navmesh.Move(trash.GetDirectionFromTo_N(startPosition, endPosition) * 0.1f);
 
         else Invoke("ChangeAttackState", 2);
@@ -64,23 +62,15 @@ public class Attack_Trash : State
 
     public override void Exit()
     {
-        trash.enemyMat.color = Color.black;
 
     }
 
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Player")
-    //    {
-    //        Invoke("ChangeAttackState", 2);
-    //        if (!dmg_done) AddDamage();
-    //    }
-    //}
-
     private void ChangeAttackState()
     {
-        trash.ChangeState(trash.chase);
+        if (trash.distanceToPlayer <= trash.distanceToFlee) trash.ChangeState(trash.flee);
+        else if(trash.distanceToPlayer <= trash.distanceToChase) trash.ChangeState(trash.chase);
+        
     }
 
     public void AddDamage()

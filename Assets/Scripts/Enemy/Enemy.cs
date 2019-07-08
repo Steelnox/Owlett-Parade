@@ -19,11 +19,10 @@ public abstract class Enemy : MonoBehaviour
 
     public enum EnemyType { MELEE, RANGED } //If other types needed, just add
     public EnemyType enemyType;
+    
 
+    public float distanceToPlayer;
 
-
-    public bool CanStagger;
-    private bool stagger;
 
     #region Stats
 
@@ -34,8 +33,11 @@ public abstract class Enemy : MonoBehaviour
 
     public float distanceToChase;
 
-    [Tooltip("Distance start preparing the attack")]
+    [Tooltip("Distance to start preparing the attack")]
     public float distanceToAttack;
+
+    public bool CanStagger;
+    private bool stagger;
 
     #endregion
 
@@ -46,6 +48,7 @@ public abstract class Enemy : MonoBehaviour
         enemy_navmesh.speed = speed;
 
     }
+
 
     //Functions that ALL enemies will have, add if needed (override later with it's own implementation)
     public virtual void OnHit(int damage)
