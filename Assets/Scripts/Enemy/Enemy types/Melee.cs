@@ -8,8 +8,11 @@ public class Melee : Enemy
     public State patrol;
     public State chase;
     public State attack;
+    public State prepAttack;
 
     public CapsuleCollider collider;
+
+    public Vector3 directionAttack;
 
 
     void Start()
