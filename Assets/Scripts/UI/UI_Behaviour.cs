@@ -17,6 +17,7 @@ public class UI_Behaviour : MonoBehaviour
     [SerializeField] private IntValue armor;
     [SerializeField] private IntValue maxArmor;
     [SerializeField] private List<Image> ArmorImages;
+    [SerializeField] private List<Image> EmptyArmorImages;
 
     [SerializeField] private IntValue lightSuitArmor;
     [SerializeField] private IntValue lightSuitMaxArmor;
@@ -111,10 +112,26 @@ public class UI_Behaviour : MonoBehaviour
 
         suitHealth.OnValueChange += UpdateSuitHealth;
         armor.OnValueChange += UpdatePlayerHealth;
+
+        UpdatePlayerHealth();
+
+        for (int i = EmptyArmorImages.Count - 1; i >= 0; i--)
+        {
+            bool active = i + 1 > maxArmor.RuntimeValue ? false : true;
+            EmptyArmorImages[i].gameObject.SetActive(active);
+        }
     }
 
     public void UpdatePlayerHealth()
     {
+        if (maxArmor.RuntimeValue == 0)
+        {
+            for (int i = 0; i < ArmorImages.Count; i++)
+            {
+                ArmorImages[i].enabled = false;
+            }
+        }
+
         for (int i = maxArmor.RuntimeValue - 1; i >= 0; i--)
         {
             ArmorImages[i].enabled = i > armor.RuntimeValue - 1 ? false : true;

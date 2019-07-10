@@ -74,7 +74,7 @@ MonoBehaviour:
   dash: {fileID: 3555529927941697226}
   stealSuit: {fileID: 0}
   currentSuit: {fileID: 3555529928931888308}
-  chamberSuit: {fileID: 0}
+  chamberSuit: {fileID: 2488276488342508227}
   noSuit: {fileID: 7315733811670721533}
   currentSuitValue: {fileID: 11400000, guid: aed71c751a791f94281ede146da2dce7, type: 2}
   chamberSuitValue: {fileID: 11400000, guid: 18c93f2b7f5f1c74ca18c4f9f0c6a1a5, type: 2}
@@ -758,6 +758,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6631138498071811633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2488276488342508227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9119414436369548530, guid: 2a78cf91763460548920074c3b323869,
+    type: 3}
+  m_PrefabInstance: {fileID: 6631138498071811633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe16ec6c897bd1b4990484632a858127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8310541816435093056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3409911651285629041, guid: 2a78cf91763460548920074c3b323869,
