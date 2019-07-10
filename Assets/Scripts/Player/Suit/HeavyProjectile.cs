@@ -36,6 +36,10 @@ public class HeavyProjectile : BaseProjectile
     {
         if (other.tag == "Player") return;
 
+        PlayerCamera.instance.StartCoroutine(PlayerCamera.instance.ShakeObject(0.1f, 0.3f, other.transform));
+        CooldownManager.instance.StopTime();
+        CooldownManager.instance.SetTime();
+
         Explode();
         Destroy(gameObject);
     }

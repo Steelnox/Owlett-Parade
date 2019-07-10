@@ -11,6 +11,15 @@ public class RainCannon : MonoBehaviour
 
     private void Start()
     {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius);
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            var enemy = hitColliders[i].GetComponent<Enemy>();
+
+            if (enemy) enemiesInside.Add(enemy);
+        }
+
         Destroy(gameObject, duration);
 
         StartCoroutine(DoDamage());
@@ -35,6 +44,7 @@ public class RainCannon : MonoBehaviour
     {
         foreach (Enemy enemy in enemiesInside)
         {
+            print(damagePerSecond);
             enemy.OnHit(damagePerSecond);
         }
 

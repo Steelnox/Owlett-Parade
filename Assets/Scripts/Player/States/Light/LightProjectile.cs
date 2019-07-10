@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightProjectile : MonoBehaviour
+public class LightProjectile : BaseProjectile
 {
     public GameObject particles;
 
-    public float speed = 150f;
     public float destroyTime = 0.4f;
-
-    public int damage = 1;
 
     void Start()
     {

@@ -4,17 +4,45 @@ using UnityEngine;
 
 public class AreaRainAttack : Skill
 {
-    public GameObject prefab;
+    public GameObject pinPrefab;
+    public GameObject barragePrefab;
+
+    public float pinPlacementRange = 5f;
+
+    public GameObject placedPin;
 
     public override void Enter()
     {
-        GameObject attack = Instantiate(prefab, controller.transform.position, transform.rotation);
 
-        controller.ChangeState(controller.idle);
+        if (placedPin) SendBarrage();
+        else PlacePin();
     }
 
     public override void Exit()
     {
+
+    }
+
+    private void PlacePin()
+    {
+        Vector3 pinPosition = MathExtension.MouseWorldPosition("Floor");
+
+        pinPosition = transform.position + ((pinPosition - transform.position).normalized * pinPlacementRange);
+
+        placedPin = Instantiate(pinPrefab, pinPosition, Quaternion.identity);
+
+        controller.ReturnToBaseState();
+    }
+
+    private void SendBarrage()
+    {
+        Instantiate(barragePrefab, placedPin.transform.position, Quaternion.identity);
+
+        Destroy(placedPin);
+        placedPin = null;
+
+        controller.ReturnToBaseState();
+
         base.Exit();
     }
 }

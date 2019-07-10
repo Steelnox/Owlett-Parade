@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: cost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2591058608857661783, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: speed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2591058609042351969, guid: ee15c3d666025e94eab031c52dd45c38,
         type: 3}
       propertyPath: m_Layer
@@ -705,6 +710,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1905142135628595202, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: pinPrefab
+      value: 
+      objectReference: {fileID: 3351768969755819406, guid: 14c1f5d2bcef4784383c16031c0d1b30,
+        type: 3}
+    - target: {fileID: 1905142135628595202, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: barragePrefab
+      value: 
+      objectReference: {fileID: 3241821907134880668, guid: ae02fcdb667f2e44ca78d194df9524a3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a78cf91763460548920074c3b323869, type: 3}
 --- !u!4 &9005427015658492902 stripped

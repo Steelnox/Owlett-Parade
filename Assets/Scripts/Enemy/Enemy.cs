@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour
 
     public enum EnemyType { MELEE, RANGED } //If other types needed, just add
     public EnemyType enemyType;
-    
+
 
     public float distanceToPlayer;
 
@@ -54,6 +54,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void OnHit(int damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        if (currentHealth == 0) print("Rip enemy");
     }
 
     public void ChangeState(State state)
