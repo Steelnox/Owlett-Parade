@@ -43,7 +43,7 @@ public class Attack_Trash : State
     {
         timer += Time.deltaTime;
 
-        if(timer < 1.2f) trash.enemy_navmesh.Move(trash.GetDirectionFromTo_N(startPosition, endPosition) * 0.1f);
+        if (timer < 1.2f) trash.enemy_navmesh.Move(trash.GetDirectionFromTo_N(startPosition, endPosition) * 0.1f);
 
         else Invoke("ChangeAttackState", 2);
 
@@ -69,8 +69,8 @@ public class Attack_Trash : State
     private void ChangeAttackState()
     {
         if (trash.distanceToPlayer <= trash.distanceToFlee) trash.ChangeState(trash.flee);
-        else if(trash.distanceToPlayer <= trash.distanceToChase) trash.ChangeState(trash.chase);
-        
+        else if (trash.distanceToPlayer <= trash.distanceToChase) trash.ChangeState(trash.chase);
+
     }
 
     public void AddDamage()
@@ -79,7 +79,7 @@ public class Attack_Trash : State
         //Debug.Log(trash.damage);
         //Debug.Log(trash.player.healthSystem);
 
-        //trash.player.healthSystem.GetDamaged(trash.damage);
+        trash.player.healthSystem.GetDamaged(trash.damage);
         dmg_done = true;
     }
 }

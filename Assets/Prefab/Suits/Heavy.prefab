@@ -423,10 +423,9 @@ MonoBehaviour:
   ability2: {fileID: 1789923453692196758}
   suitAnimator: {fileID: 6124871064604411264}
   isInChamber: 1
-  maxArmor: 5
-  currentArmor: 5
+  maxArmor: {fileID: 11400000, guid: 9f094fcab9666024789dbc3b02b245c4, type: 2}
+  currentArmor: {fileID: 11400000, guid: bbe8e233daded944ba56b177e41a3c8b, type: 2}
   controller: {fileID: 0}
-  DataUI: {fileID: 11400000, guid: c0b5317756633a74981ead1bd8ed5e42, type: 2}
 --- !u!114 &6927080935914498034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,10 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f064e691a143f47ab104be64ce36e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  currentHealth: 0
-  controller: {fileID: 0}
-  DataUI: {fileID: 11400000, guid: c0b5317756633a74981ead1bd8ed5e42, type: 2}
+  maxHealth: {fileID: 0}
+  currentHealth: {fileID: 0}
 --- !u!1 &2828673870562435999
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +745,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -760,7 +756,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1137,7 +1132,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1149,7 +1143,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

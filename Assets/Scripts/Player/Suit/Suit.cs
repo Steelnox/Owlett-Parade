@@ -64,9 +64,4 @@ public class Suit : MonoBehaviour
 
         suitHealthSystem.GetHealed(full ? suitHealthSystem.MaxHealth : amount);
     }
-
-    private void Test()
-    {
-
-    }
 }

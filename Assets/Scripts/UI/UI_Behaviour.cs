@@ -18,6 +18,15 @@ public class UI_Behaviour : MonoBehaviour
     [SerializeField] private IntValue maxArmor;
     [SerializeField] private List<Image> ArmorImages;
 
+    [SerializeField] private IntValue lightSuitArmor;
+    [SerializeField] private IntValue lightSuitMaxArmor;
+    [SerializeField] private IntValue heavySuitArmor;
+    [SerializeField] private IntValue heavySuitMaxArmor;
+    [SerializeField] private IntValue ccSuitArmor;
+    [SerializeField] private IntValue ccSuitMaxArmor;
+    [SerializeField] private IntValue noSuitArmor;
+    [SerializeField] private IntValue noSuitMaxArmor;
+
     [Space]
     [Header("Suit Health & Chamber")]
     [Space]
@@ -35,6 +44,8 @@ public class UI_Behaviour : MonoBehaviour
     [SerializeField] private IntValue heavySuitMaxHealth;
     [SerializeField] private IntValue ccSuitHealth;
     [SerializeField] private IntValue ccSuitMaxHealth;
+    [SerializeField] private IntValue noSuitHealth;
+    [SerializeField] private IntValue noSuitMaxHealth;
 
     private IntValue suitHealth;
     private IntValue suitMaxHealth;
@@ -68,24 +79,38 @@ public class UI_Behaviour : MonoBehaviour
     private void SetSuit()
     {
         if (suitHealth) suitHealth.OnValueChange -= UpdateSuitHealth;
+        if (armor) armor.OnValueChange -= UpdateSuitHealth;
 
         switch (currentSuit.RuntimeValue.suitType)
         {
             case Suit.SuitType.LIGHT:
                 suitHealth = lightSuitHealth;
                 suitMaxHealth = lightSuitMaxHealth;
+                armor = lightSuitArmor;
+                maxArmor = lightSuitMaxArmor;
                 break;
             case Suit.SuitType.HEAVY:
                 suitHealth = heavySuitHealth;
                 suitMaxHealth = heavySuitMaxHealth;
+                armor = heavySuitArmor;
+                maxArmor = heavySuitMaxArmor;
                 break;
             case Suit.SuitType.CC:
                 suitHealth = ccSuitHealth;
                 suitMaxHealth = ccSuitMaxHealth;
+                armor = ccSuitArmor;
+                maxArmor = ccSuitArmor;
+                break;
+            case Suit.SuitType.NONE:
+                suitHealth = noSuitHealth;
+                suitMaxHealth = noSuitMaxHealth;
+                armor = noSuitArmor;
+                maxArmor = noSuitMaxArmor;
                 break;
         }
 
         suitHealth.OnValueChange += UpdateSuitHealth;
+        armor.OnValueChange += UpdatePlayerHealth;
     }
 
     public void UpdatePlayerHealth()

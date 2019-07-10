@@ -52,3 +52,9 @@ public class SuitValue : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnBeforeSerialize() { }
 }
+
+[CreateAssetMenu(fileName = "IntConstValue")]
+public class IntConstValue : ScriptableObject
+{
+    public readonly int value;
+}

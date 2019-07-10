@@ -36,6 +36,7 @@ public class Controller : MonoBehaviour
 
     public Suit currentSuit;
     public Suit chamberSuit;
+    public Suit noSuit;
 
     public SuitValue currentSuitValue;
     public SuitValue chamberSuitValue;
@@ -62,9 +63,14 @@ public class Controller : MonoBehaviour
             //else if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
             if (currentSuit == null) return;
 
-            if (Input.GetButtonDown(currentSuit.attack.button) && currentSuit.attack.available) ChangeState(currentSuit.attack);
-            if (Input.GetButtonDown(currentSuit.ability1.button) && currentSuit.ability1.available) ChangeState(currentSuit.ability1);
-            if (Input.GetButtonDown(currentSuit.ability2.button) && currentSuit.ability2.available) ChangeState(currentSuit.ability2);
+            if (currentSuit.attack && Input.GetButtonDown(currentSuit.attack.button) && currentSuit.attack.available)
+                ChangeState(currentSuit.attack);
+
+            if (currentSuit.ability1 && Input.GetButtonDown(currentSuit.ability1.button) && currentSuit.ability1.available)
+                ChangeState(currentSuit.ability1);
+
+            if (currentSuit.ability2 && Input.GetButtonDown(currentSuit.ability2.button) && currentSuit.ability2.available)
+                ChangeState(currentSuit.ability2);
         }
 
         stateMachine.ExecuteState();

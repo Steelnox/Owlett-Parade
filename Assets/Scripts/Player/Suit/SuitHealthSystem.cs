@@ -35,6 +35,10 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
             controller.chamberSuit.EquipSuit();
             controller.chamberSuit = null;
         }
+        else
+        {
+            controller.noSuit.EquipSuit();
+        }
 
         gameObject.SetActive(false);
     }
