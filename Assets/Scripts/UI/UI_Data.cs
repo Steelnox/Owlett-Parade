@@ -11,7 +11,7 @@ public class IntValue : ScriptableObject, ISerializationCallbackReceiver
     public event OnValueChangeDelegate OnValueChange;
 
     private int runtimeValue;
-    public int RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange(); } }
+    public int RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
     public int value;
 
@@ -27,7 +27,7 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     public event OnValueChangeDelegate OnValueChange;
 
     private float runtimeValue;
-    public float RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange(); } }
+    public float RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
     public float value;
 
@@ -44,7 +44,7 @@ public class SuitValue : ScriptableObject, ISerializationCallbackReceiver
     public event OnValueChangeDelegate OnValueChange;
 
     private Suit runtimeValue;
-    public Suit RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange(); } }
+    public Suit RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
     public Suit value;
 

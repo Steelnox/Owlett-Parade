@@ -425,7 +425,7 @@ MonoBehaviour:
   maxArmor: {fileID: 11400000, guid: 9f094fcab9666024789dbc3b02b245c4, type: 2}
   currentArmor: {fileID: 11400000, guid: bbe8e233daded944ba56b177e41a3c8b, type: 2}
   controller: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 7.5
 --- !u!114 &8389368740534766012
 MonoBehaviour:
   m_ObjectHideFlags: 0

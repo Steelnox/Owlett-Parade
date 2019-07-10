@@ -8,19 +8,14 @@ public class AreaRainAttack : Skill
     public GameObject barragePrefab;
 
     public float pinPlacementRange = 5f;
+    public float pinDestroyTime = 5f;
 
     public GameObject placedPin;
 
     public override void Enter()
     {
-
         if (placedPin) SendBarrage();
         else PlacePin();
-    }
-
-    public override void Exit()
-    {
-
     }
 
     private void PlacePin()
@@ -30,6 +25,8 @@ public class AreaRainAttack : Skill
         pinPosition = transform.position + ((pinPosition - transform.position).normalized * pinPlacementRange);
 
         placedPin = Instantiate(pinPrefab, pinPosition, Quaternion.identity);
+
+        Destroy(placedPin, 4);
 
         controller.ReturnToBaseState();
     }
