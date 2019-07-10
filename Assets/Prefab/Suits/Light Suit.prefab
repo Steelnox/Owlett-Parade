@@ -54,7 +54,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -66,7 +65,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -405,9 +403,10 @@ MonoBehaviour:
   ability2: {fileID: 7204109915569694079}
   suitAnimator: {fileID: 2591058608857661777}
   isInChamber: 1
-  maxArmor: {fileID: 11400000, guid: 75609744b94706c4e8bf03ff8c229fad, type: 2}
-  currentArmor: {fileID: 11400000, guid: dd50e0cd6fb3c974381c4102390739a7, type: 2}
+  maxArmor: {fileID: 11400000, guid: dcbaa3efcbf33be4fbf8f34229990d1c, type: 2}
+  currentArmor: {fileID: 11400000, guid: b80c0ff9eebae5941bd6db0e6b2777d6, type: 2}
   controller: {fileID: 0}
+  moveSpeed: 20
 --- !u!114 &1872987004870559629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,7 +1126,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1139,7 +1137,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

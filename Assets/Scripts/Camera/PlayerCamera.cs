@@ -13,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
     public float positionDamping;
 
     public Vector3 offset;
-    private Vector3 velocity;
+    private Vector3 velocity = Vector3.zero;
 
     public Transform camera;
     public Vector3 startPosition = Vector3.zero;
@@ -26,14 +26,18 @@ public class PlayerCamera : MonoBehaviour
         if (instance != this) Destroy(this);
 
         camera = transform.GetChild(0);
+
+        if (!target && Controller.instance) target = Controller.instance.transform;
     }
 
     private void LateUpdate()
     {
+        //Test
         if (Input.GetKeyDown(KeyCode.M))
         {
             StartCoroutine(ShakeObject(.15f, .3f, newTarget));
         }
+
         Move();
     }
 

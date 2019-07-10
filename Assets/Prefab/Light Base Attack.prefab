@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 4498388088135534877, guid: a3b1715d45ba6684b87f3a13b3d6ebde,
     type: 3}
-  speed: 150
+  speed: 200
   destroyTime: 0.4
   damage: 5
 --- !u!135 &3348505002077419960

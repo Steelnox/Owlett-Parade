@@ -118,7 +118,9 @@ public class UI_Behaviour : MonoBehaviour
         for (int i = EmptyArmorImages.Count - 1; i >= 0; i--)
         {
             bool active = i + 1 > maxArmor.RuntimeValue ? false : true;
-            EmptyArmorImages[i].gameObject.SetActive(active);
+
+            EmptyArmorImages[i].enabled = active;
+            ArmorImages[i].enabled = active;
         }
     }
 

@@ -19,6 +19,8 @@ public class Walk : State
         controller = Controller.instance;
 
         controller.suitAnimator.SetBool("Moving", true);
+
+        walkSpeed = controller.currentSuit.moveSpeed;
     }
 
     public override void Execute()

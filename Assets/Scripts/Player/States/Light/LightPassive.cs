@@ -16,7 +16,7 @@ public class LightPassive : MonoBehaviour
     {
         if (instance == null) instance = this;
         if (instance != this) Destroy(this);
-
+        /*
         //For Testing Purposes
         var temp = FindObjectsOfType<Melee>();
 
@@ -24,6 +24,8 @@ public class LightPassive : MonoBehaviour
         {
             markedEnemies.Add(temp[i]);
         }
+
+        */
     }
 
     public void MarkEnemy(Enemy enemy)

@@ -25,6 +25,8 @@ public class Suit : MonoBehaviour
 
     public IHealth suitHealthSystem;
 
+    public float moveSpeed = 10;
+
     private void Start()
     {
         suitHealthSystem = GetComponent<IHealth>();

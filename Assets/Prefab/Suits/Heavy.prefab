@@ -426,6 +426,7 @@ MonoBehaviour:
   maxArmor: {fileID: 11400000, guid: 9f094fcab9666024789dbc3b02b245c4, type: 2}
   currentArmor: {fileID: 11400000, guid: bbe8e233daded944ba56b177e41a3c8b, type: 2}
   controller: {fileID: 0}
+  moveSpeed: 5
 --- !u!114 &6927080935914498034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f064e691a143f47ab104be64ce36e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: {fileID: 0}
-  currentHealth: {fileID: 0}
+  maxHealth: {fileID: 11400000, guid: c2a0ba438e372b942b9a97d2e8c30451, type: 2}
+  currentHealth: {fileID: 11400000, guid: 13bcd02dedaa19d43ad9668c573b39a9, type: 2}
 --- !u!1 &2828673870562435999
 GameObject:
   m_ObjectHideFlags: 0
