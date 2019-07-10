@@ -92,6 +92,8 @@ public class Controller : MonoBehaviour
             currentSuit.EquipSuit();
             chamberSuit = tempSuit;
             chamberSuitValue.RuntimeValue = chamberSuit;
+
+            ReturnToBaseState();
         }
     }
 
