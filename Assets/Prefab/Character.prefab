@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3555529927941697226}
   - component: {fileID: 3555529927941697227}
   - component: {fileID: 3555529927941697224}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -236,6 +236,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: passive
+      value: 
+      objectReference: {fileID: 818707849786362477}
+    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 3555529928931888311}
+    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 3555529927941697223}
     - target: {fileID: 2591058610165824753, guid: ee15c3d666025e94eab031c52dd45c38,
         type: 3}
       propertyPath: m_Layer
@@ -261,21 +276,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
-        type: 3}
-      propertyPath: passive
-      value: 
-      objectReference: {fileID: 818707849786362477}
-    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
-        type: 3}
-      propertyPath: attack
-      value: 
-      objectReference: {fileID: 3555529928931888311}
-    - target: {fileID: 2591058608857661780, guid: ee15c3d666025e94eab031c52dd45c38,
-        type: 3}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 3555529927941697223}
     - target: {fileID: 2591058608857661783, guid: ee15c3d666025e94eab031c52dd45c38,
         type: 3}
       propertyPath: cost
@@ -533,16 +533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5939909977428128004, guid: 2a78cf91763460548920074c3b323869,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5745778588380964937, guid: 2a78cf91763460548920074c3b323869,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 9119414436369548530, guid: 2a78cf91763460548920074c3b323869,
         type: 3}
       propertyPath: attack
@@ -553,6 +543,16 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 3555529927941697223}
+    - target: {fileID: 5939909977428128004, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745778588380964937, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8728027833393819760, guid: 2a78cf91763460548920074c3b323869,
         type: 3}
       propertyPath: m_Layer

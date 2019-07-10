@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UI_Behaviour : MonoBehaviour
 {
+    #region Variables
+
     [Header("Health & Armor")]
 
     [SerializeField] private IntValue health;
@@ -50,6 +52,8 @@ public class UI_Behaviour : MonoBehaviour
     [SerializeField] private IntValue dashMaxCharges;
 
     [SerializeField] private List<DashRechargeImage> dashGauge;
+
+    #endregion
 
     private void Start()
     {

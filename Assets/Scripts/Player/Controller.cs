@@ -49,6 +49,7 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         cooldownManager = CooldownManager.instance;
+        healthSystem = GetComponent<IHealth>();
 
         ChangeState(idle);
     }

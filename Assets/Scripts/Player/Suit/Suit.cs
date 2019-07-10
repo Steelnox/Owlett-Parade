@@ -40,6 +40,7 @@ public class Suit : MonoBehaviour
         else
         {
             CurrentArmor -= amount;
+            amount = 0;
         }
 
         return amount;
@@ -62,5 +63,10 @@ public class Suit : MonoBehaviour
         CurrentArmor = full ? MaxArmor : CurrentArmor;
 
         suitHealthSystem.GetHealed(full ? suitHealthSystem.MaxHealth : amount);
+    }
+
+    private void Test()
+    {
+
     }
 }
