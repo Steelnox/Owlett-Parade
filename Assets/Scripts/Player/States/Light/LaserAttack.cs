@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LaserAttack : Skill
 {
+    public float speed;
+
     public GameObject effects;
     public Transform spawnPosition;
 
@@ -22,6 +24,10 @@ public class LaserAttack : Skill
     {
         if (controller.currentState != this) return;
 
-        GameObject attack = Instantiate(effects, spawnPosition.position, transform.rotation);            
-    }       
+        GameObject attack = Instantiate(effects, spawnPosition.position, transform.rotation);
+
+        //CleanUp
+        if (attack.GetComponent<BaseProjectile>())
+            attack.GetComponent<BaseProjectile>().SetStats(speed, damage);
+    }
 }

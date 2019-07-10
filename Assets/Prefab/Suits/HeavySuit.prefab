@@ -354,13 +354,12 @@ GameObject:
   - component: {fileID: 2377686734398490071}
   - component: {fileID: 6124871064604411264}
   - component: {fileID: 9119414436369548530}
-  - component: {fileID: 6927080935914498034}
-  - component: {fileID: 3409911651285629041}
-  - component: {fileID: 1789923453692196758}
-  - component: {fileID: 2377686733808515300}
   - component: {fileID: 8389368740534766012}
+  - component: {fileID: 6927080935914498034}
+  - component: {fileID: 613475566414098308}
+  - component: {fileID: 1905142135628595202}
   m_Layer: 11
-  m_Name: Heavy
+  m_Name: HeavySuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,91 +417,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suitType: 2
   passive: {fileID: 6927080935914498034}
-  attack: {fileID: 0}
-  ability1: {fileID: 2377686733808515300}
-  ability2: {fileID: 1789923453692196758}
+  attack: {fileID: 613475566414098308}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
   suitAnimator: {fileID: 6124871064604411264}
   isInChamber: 1
   maxArmor: {fileID: 11400000, guid: 9f094fcab9666024789dbc3b02b245c4, type: 2}
   currentArmor: {fileID: 11400000, guid: bbe8e233daded944ba56b177e41a3c8b, type: 2}
   controller: {fileID: 0}
   moveSpeed: 5
---- !u!114 &6927080935914498034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415735716381575510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba31ec6441eb48945a07f4140c488afa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stacks: 0
-  timeBeforeLoseStack: 1.5
---- !u!114 &3409911651285629041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415735716381575510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af852dbbc40f284d9e74e0ac31b742a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: Fire1
-  available: 1
-  cost: 0
-  damage: 10
-  multiplier: 1
-  hasCooldown: 1
-  cooldown: 0
-  effects: {fileID: 2986211916522997616, guid: 57f7fcf3433c9b64084e5ac2b058713e, type: 3}
-  spawnPosition: {fileID: 170448343562906294}
---- !u!114 &1789923453692196758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415735716381575510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af852dbbc40f284d9e74e0ac31b742a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: Fire2
-  available: 1
-  cost: 0
-  damage: 10
-  multiplier: 1
-  hasCooldown: 1
-  cooldown: 0
-  effects: {fileID: 0}
-  spawnPosition: {fileID: 0}
---- !u!114 &2377686733808515300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2415735716381575510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03c45e49a404a8342acdaf7024c7e13d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: Fire3
-  available: 1
-  cost: 0
-  damage: 10
-  multiplier: 1
-  hasCooldown: 1
-  cooldown: 5
-  prefab: {fileID: 3241821907134880668, guid: ae02fcdb667f2e44ca78d194df9524a3, type: 3}
 --- !u!114 &8389368740534766012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +440,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: c2a0ba438e372b942b9a97d2e8c30451, type: 2}
   currentHealth: {fileID: 11400000, guid: 13bcd02dedaa19d43ad9668c573b39a9, type: 2}
+--- !u!114 &6927080935914498034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415735716381575510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba31ec6441eb48945a07f4140c488afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stacks: 0
+  timeBeforeLoseStack: 1.5
+--- !u!114 &613475566414098308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415735716381575510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cb80dbb44893c479194d73bd4061c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: Fire1
+  available: 1
+  cost: 1
+  damage: 10
+  multiplier: 1
+  hasCooldown: 1
+  cooldown: 1
+  speed: 100
+  effects: {fileID: 4858943839892331169, guid: aaeb5dc7cbb8d1d458d751111aeeedb3, type: 3}
+  spawnPosition: {fileID: 170448343562906294}
+--- !u!114 &1905142135628595202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415735716381575510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c45e49a404a8342acdaf7024c7e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: Fire2
+  available: 1
+  cost: 1
+  damage: 1
+  multiplier: 1
+  hasCooldown: 1
+  cooldown: 0
+  prefab: {fileID: 0}
 --- !u!1 &2828673870562435999
 GameObject:
   m_ObjectHideFlags: 0
