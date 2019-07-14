@@ -14,6 +14,10 @@ public class Melee : Enemy
 
     public Vector3 directionAttack;
 
+    public Material normalMaterial;
+    public Renderer myMeshRenderer;
+
+
 
     void Start()
     {
@@ -23,6 +27,10 @@ public class Melee : Enemy
         enemy_navmesh = GetComponent<NavMeshAgent>();
 
         collider = GetComponent<CapsuleCollider>();
+
+        currentHealth = maxHealth;
+
+        gamemanagerScript = GameManager.instance;
 
         ChangeState(patrol);
     }

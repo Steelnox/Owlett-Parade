@@ -12,6 +12,7 @@ public class TrashEnemy : Enemy
     public State prepAttack;
     public State attack;
     public State flee;
+    public State patrol;
 
     [Tooltip("Distance to start running away from the player")]
     public float distanceToFlee;
@@ -32,6 +33,9 @@ public class TrashEnemy : Enemy
 
         enemy_navmesh = GetComponent<NavMeshAgent>();
 
+        gamemanagerScript = GameManager.instance;
+
+        currentHealth = maxHealth;
 
         ChangeState(chase);
     }
@@ -44,4 +48,5 @@ public class TrashEnemy : Enemy
 
         //Debug.Log(currentState);
     }
+
 }

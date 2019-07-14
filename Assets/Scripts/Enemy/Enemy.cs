@@ -6,7 +6,7 @@ using UnityEngine.AI;
 ///   BASE CLASS FOR THE ENEMIES, USE INHERITANCE TO CREATE OTHER CLASSES OF ENEMIES (for example: RangedEnemy, MeleeEnemy, ElitEnemy)
 public abstract class Enemy : MonoBehaviour
 {
-    //Properties that ALL enemis will have, add if needed
+    //Properties that ALL enemies will have, add if needed
     protected StateMachine stateMachine = new StateMachine();
     public State currentState;
 
@@ -16,6 +16,8 @@ public abstract class Enemy : MonoBehaviour
 
     public NavMeshAgent enemy_navmesh;
 
+    public GameManager gamemanagerScript;
+
 
     public enum EnemyType { MELEE, RANGED } //If other types needed, just add
     public EnemyType enemyType;
@@ -23,6 +25,13 @@ public abstract class Enemy : MonoBehaviour
 
     public float distanceToPlayer;
 
+    public Material staggerMaterial;
+
+    public State staggerState;
+
+
+    public enum SuitType { NONE, LIGHT, HEAVY, CC }
+    public SuitType suitType;
 
     #region Stats
 
@@ -30,14 +39,19 @@ public abstract class Enemy : MonoBehaviour
     public int currentHealth;
     public int damage;
     public float speed;
+    public int enemyScore;
 
     public float distanceToChase;
 
     [Tooltip("Distance to start preparing the attack")]
     public float distanceToAttack;
 
+    [Tooltip("Enemy can stagger the player")]
     public bool CanStagger;
-    private bool stagger;
+
+    [Tooltip("Enemy can be staggered")]
+    public bool stagger;
+
 
     #endregion
 
@@ -45,8 +59,9 @@ public abstract class Enemy : MonoBehaviour
     {
         player = Controller.instance;
 
-        enemy_navmesh.speed = speed;
+        gamemanagerScript = GameManager.instance;
 
+        enemy_navmesh.speed = speed;
     }
 
 
@@ -54,7 +69,11 @@ public abstract class Enemy : MonoBehaviour
     public virtual void OnHit(int damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
-        if (currentHealth == 0) print("Rip enemy");
+        if (currentHealth == 0) this.gameObject.SetActive(false);
+        if (stagger) ChangeState(staggerState);
+
+        gamemanagerScript.ResetMultiplier(enemyScore);
+
     }
 
     public void ChangeState(State state)

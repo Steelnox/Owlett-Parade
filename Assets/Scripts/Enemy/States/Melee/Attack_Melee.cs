@@ -90,8 +90,7 @@ public class Attack_Melee : State
 
     private void AddDamage()
     {
-        Debug.Log("dmgdone");
-        //melee.player.healthSystem.GetDamaged(melee.damage);
+        melee.player.healthSystem.GetDamaged(melee.damage);
         dmg_done = true;
     }
 

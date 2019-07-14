@@ -27,8 +27,8 @@ public class Chase_Melee : State
 
         if(timer >= 1f)
         {
-            if (melee.GetDistance(melee.player.transform.position) >= melee.distanceToChase) melee.ChangeState(melee.patrol);
-            if (melee.GetDistance(melee.player.transform.position) <= melee.distanceToAttack) melee.ChangeState(melee.prepAttack);
+            if (melee.distanceToPlayer >= melee.distanceToChase) melee.ChangeState(melee.patrol);
+            if (melee.distanceToPlayer <= melee.distanceToAttack) melee.ChangeState(melee.prepAttack);
         }
 
         

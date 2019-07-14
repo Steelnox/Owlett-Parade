@@ -52,4 +52,15 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player.healthSystem.GetDamaged(dmg);
+
+            timer = 0;
+            activated = false;
+        }
+    }
+
 }

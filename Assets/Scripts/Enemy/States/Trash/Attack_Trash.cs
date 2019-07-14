@@ -70,15 +70,15 @@ public class Attack_Trash : State
     {
         if (trash.distanceToPlayer <= trash.distanceToFlee) trash.ChangeState(trash.flee);
         else if (trash.distanceToPlayer <= trash.distanceToChase) trash.ChangeState(trash.chase);
+        else if (trash.distanceToPlayer > trash.distanceToChase) trash.ChangeState(trash.patrol);
+
 
     }
 
     public void AddDamage()
     {
         Debug.Log("dmgdone");
-        //Debug.Log(trash.damage);
-        //Debug.Log(trash.player.healthSystem);
-
+       
         trash.player.healthSystem.GetDamaged(trash.damage);
         dmg_done = true;
     }

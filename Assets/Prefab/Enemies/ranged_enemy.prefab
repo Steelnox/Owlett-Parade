@@ -103,6 +103,8 @@ GameObject:
   - component: {fileID: 2565801084711708768}
   - component: {fileID: 850510269794922743}
   - component: {fileID: 3807821535894428123}
+  - component: {fileID: 5551292082175211449}
+  - component: {fileID: 2490389468078391182}
   - component: {fileID: 1892197056084854063}
   - component: {fileID: 1670273135231425295}
   - component: {fileID: 6563989927992830735}
@@ -155,7 +157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 36b405a4627b04f4e97608cbb180eaea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,24 +193,59 @@ MonoBehaviour:
   enemy_animator: {fileID: 0}
   player: {fileID: 0}
   enemy_navmesh: {fileID: 0}
-  enemyType: 0
+  gamemanagerScript: {fileID: 0}
+  enemyType: 1
   distanceToPlayer: 0
-  maxHealth: 0
+  staggerMaterial: {fileID: 2100000, guid: abcabc81e09cb5747add886325edada3, type: 2}
+  staggerState: {fileID: 2490389468078391182}
+  suitType: 0
+  maxHealth: 20
   currentHealth: 0
   damage: 0
   speed: 0
-  distanceToChase: 10
+  enemyScore: 10
+  distanceToChase: 15
   distanceToAttack: 8
   CanStagger: 0
+  stagger: 1
   chase: {fileID: 6563989927992830735}
   attack: {fileID: 1892197056084854063}
   flee: {fileID: 1670273135231425295}
+  patrol: {fileID: 5551292082175211449}
   shoot: 0
   C_collider: {fileID: 0}
-  gamemanagerScript: {fileID: 0}
   projectile: {fileID: 0}
   distanceToFlee: 5
   timeBetweenShots: 2
+  myMeshRenderer: {fileID: 850510269794922743}
+  normalMaterial: {fileID: 2100000, guid: 36b405a4627b04f4e97608cbb180eaea, type: 2}
+--- !u!114 &5551292082175211449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274619625724218848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e443f5b8aa18a74b836acbc36ae6455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PosRight: {fileID: 0}
+  PosLeft: {fileID: 0}
+--- !u!114 &2490389468078391182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274619625724218848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7526f8521327980469a97e1973e61f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeStaggered: 1
 --- !u!114 &1892197056084854063
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,8 +31,9 @@ public class Chase_Ranged : State
         timer += Time.deltaTime;
         if (ranged.distanceToPlayer <= ranged.distanceToFlee) ranged.ChangeState(ranged.flee);
         else if (ranged.distanceToPlayer <= ranged.distanceToAttack && ranged.distanceToPlayer > ranged.distanceToFlee) ranged.ChangeState(ranged.attack);
-        //else if (distanceToPlayer >= ranged.distanceToChase) ranged.ChangeState(ranged.patrol);
-        
+        else if (ranged.distanceToPlayer > ranged.distanceToChase) ranged.ChangeState(ranged.patrol);
+
+
 
 
     }

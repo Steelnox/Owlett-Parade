@@ -37,6 +37,7 @@ public class Attack_Ranged : State
 
     public override void Execute()
     {
+        
         directionAttack = (ranged.enemy_navmesh.transform.position - ranged.player.transform.position).normalized;
 
         Quaternion lookOnLook = Quaternion.LookRotation(-directionAttack);
@@ -73,6 +74,8 @@ public class Attack_Ranged : State
 
         if (ranged.distanceToPlayer <= ranged.distanceToFlee) ranged.ChangeState(ranged.flee);
         else if (ranged.distanceToPlayer <= ranged.distanceToChase && ranged.distanceToPlayer > ranged.distanceToAttack) ranged.ChangeState(ranged.chase);
+        else if (ranged.distanceToPlayer > ranged.distanceToChase) ranged.ChangeState(ranged.patrol);
+
     }
 
 

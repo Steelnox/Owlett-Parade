@@ -41,6 +41,8 @@ public class Chase_Trash : State
 
         if (trash.distanceToPlayer <= trash.distanceToFlee) trash.ChangeState(trash.flee);
         else if (trash.distanceToPlayer <= trash.distanceToAttack) trash.ChangeState(trash.prepAttack);
+        else if (trash.distanceToPlayer > trash.distanceToChase) trash.ChangeState(trash.patrol);
+
     }
 
     public override void Exit()

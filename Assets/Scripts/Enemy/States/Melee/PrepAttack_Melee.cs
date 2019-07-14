@@ -43,7 +43,7 @@ public class PrepAttack_Melee : State
 
     public override void Exit()
     {
-        melee.enemy_navmesh.isStopped = false;
+        if(melee.currentHealth > 0) melee.enemy_navmesh.isStopped = false;
 
 
     }
