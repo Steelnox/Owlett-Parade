@@ -29,8 +29,6 @@ public abstract class Enemy : MonoBehaviour
 
     public State staggerState;
 
-
-    public enum SuitType { NONE, LIGHT, HEAVY, CC }
     public SuitType suitType;
 
     #region Stats

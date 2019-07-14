@@ -38,6 +38,8 @@ public class Controller : MonoBehaviour
     public Suit chamberSuit;
     public Suit noSuit;
 
+    public List<Suit> allSuits;
+
     public SuitValue currentSuitValue;
     public SuitValue chamberSuitValue;
 
@@ -51,7 +53,7 @@ public class Controller : MonoBehaviour
     {
         cooldownManager = CooldownManager.instance;
         healthSystem = GetComponent<IHealth>();
-
+        if (!chamberSuit) ChangeSuit();
         ChangeState(idle);
     }
 
@@ -60,8 +62,8 @@ public class Controller : MonoBehaviour
         if (currentState == idle || currentState == walk)
         {
             if (Input.GetKeyDown(KeyCode.Q)) ChangeSuit();
-            //else if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
-            if (currentSuit == null) return;
+
+            if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
 
             if (currentSuit.attack && Input.GetButtonDown(currentSuit.attack.button) && currentSuit.attack.available)
                 ChangeState(currentSuit.attack);
@@ -78,7 +80,7 @@ public class Controller : MonoBehaviour
 
     #region SuitMethods
 
-    private void ChangeSuit()
+    public void ChangeSuit()
     {
         if (chamberSuit)
         {
@@ -94,6 +96,10 @@ public class Controller : MonoBehaviour
             chamberSuitValue.RuntimeValue = chamberSuit;
 
             ReturnToBaseState();
+        }
+        else
+        {
+            chamberSuitValue.RuntimeValue = noSuit;
         }
     }
 

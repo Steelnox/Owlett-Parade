@@ -19,7 +19,7 @@ public class PlayerHealthSystem : MonoBehaviour, IHealth
     {
         if (CurrentHealth <= 0 || controller.invulnerable) return;
 
-        if (controller.currentSuit.suitType == Suit.SuitType.HEAVY) HeavyPassive.instance.LoseStack();
+        if (controller.currentSuit.suitType == SuitType.HEAVY) HeavyPassive.instance.LoseStack();
         if (controller.currentSuit) amount = controller.currentSuit.DecreaseArmor(amount);
 
         CurrentHealth -= amount;
