@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Suit : MonoBehaviour
 {
-    public enum SuitType { NONE, LIGHT, HEAVY, CC }
     public SuitType suitType;
 
     public MonoBehaviour passive;
@@ -13,7 +12,7 @@ public class Suit : MonoBehaviour
 
     public Animator suitAnimator;
 
-    public bool isInChamber = true;
+    //public bool isInChamber = true;
 
     [SerializeField] private IntValue maxArmor;
     [SerializeField] private IntValue currentArmor;
@@ -55,7 +54,7 @@ public class Suit : MonoBehaviour
 
         if (suitHealthSystem == null) suitHealthSystem = GetComponent<IHealth>();
 
-        suitHealthSystem.GetHealed(suitHealthSystem.MaxHealth);
+        suitHealthSystem.GetHealed(0);
 
         gameObject.SetActive(true);
     }
@@ -63,7 +62,6 @@ public class Suit : MonoBehaviour
     public void HealSuit(bool full, int amount)
     {
         CurrentArmor = full ? MaxArmor : CurrentArmor;
-
         suitHealthSystem.GetHealed(full ? suitHealthSystem.MaxHealth : amount);
     }
 }

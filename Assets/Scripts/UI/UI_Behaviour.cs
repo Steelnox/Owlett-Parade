@@ -75,6 +75,7 @@ public class UI_Behaviour : MonoBehaviour
         UpdatePlayerHealth();
         UpdateSuitHealth();
         UpdateDashGauge();
+        UpdateChamberSuit();
     }
 
     private void SetSuit()
@@ -84,25 +85,25 @@ public class UI_Behaviour : MonoBehaviour
 
         switch (currentSuit.RuntimeValue.suitType)
         {
-            case Suit.SuitType.LIGHT:
+            case SuitType.LIGHT:
                 suitHealth = lightSuitHealth;
                 suitMaxHealth = lightSuitMaxHealth;
                 armor = lightSuitArmor;
                 maxArmor = lightSuitMaxArmor;
                 break;
-            case Suit.SuitType.HEAVY:
+            case SuitType.HEAVY:
                 suitHealth = heavySuitHealth;
                 suitMaxHealth = heavySuitMaxHealth;
                 armor = heavySuitArmor;
                 maxArmor = heavySuitMaxArmor;
                 break;
-            case Suit.SuitType.CC:
+            case SuitType.CC:
                 suitHealth = ccSuitHealth;
                 suitMaxHealth = ccSuitMaxHealth;
                 armor = ccSuitArmor;
                 maxArmor = ccSuitArmor;
                 break;
-            case Suit.SuitType.NONE:
+            case SuitType.NONE:
                 suitHealth = noSuitHealth;
                 suitMaxHealth = noSuitMaxHealth;
                 armor = noSuitArmor;
@@ -114,6 +115,7 @@ public class UI_Behaviour : MonoBehaviour
         armor.OnValueChange += UpdatePlayerHealth;
 
         UpdatePlayerHealth();
+        UpdateChamberSuit();
 
         for (int i = EmptyArmorImages.Count - 1; i >= 0; i--)
         {
@@ -185,20 +187,18 @@ public class UI_Behaviour : MonoBehaviour
     {
         Color imageColor = Color.black;
 
-        if (!chamberSuit) return;
-
         switch (chamberSuit.RuntimeValue.suitType)
         {
-            case Suit.SuitType.NONE:
+            case SuitType.NONE:
                 imageColor = Color.black;
                 break;
-            case Suit.SuitType.LIGHT:
+            case SuitType.LIGHT:
                 imageColor = Color.blue;
                 break;
-            case Suit.SuitType.HEAVY:
+            case SuitType.HEAVY:
                 imageColor = Color.red;
                 break;
-            case Suit.SuitType.CC:
+            case SuitType.CC:
                 imageColor = Color.green;
                 break;
         }

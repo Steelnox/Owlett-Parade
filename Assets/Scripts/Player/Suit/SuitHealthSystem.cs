@@ -34,6 +34,7 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
         {
             controller.chamberSuit.EquipSuit();
             controller.chamberSuit = null;
+            controller.chamberSuitValue.RuntimeValue = controller.noSuit;
         }
         else
         {
