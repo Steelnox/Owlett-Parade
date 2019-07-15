@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2787349478881627418}
   - component: {fileID: 3348505002077419960}
   - component: {fileID: 7471818485314345724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light Base Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,11 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9874ae29b8a2903478ae13089caa5e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 200
+  damage: 5
   particles: {fileID: 4498388088135534877, guid: a3b1715d45ba6684b87f3a13b3d6ebde,
     type: 3}
-  speed: 200
   destroyTime: 0.4
-  damage: 5
 --- !u!135 &3348505002077419960
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 6927080935914498034}
   - component: {fileID: 613475566414098308}
   - component: {fileID: 1905142135628595202}
+  - component: {fileID: 4023004794655324757}
   m_Layer: 11
   m_Name: HeavySuit
   m_TagString: Untagged
@@ -419,13 +420,12 @@ MonoBehaviour:
   passive: {fileID: 6927080935914498034}
   attack: {fileID: 613475566414098308}
   ability1: {fileID: 1905142135628595202}
-  ability2: {fileID: 0}
+  ability2: {fileID: 4023004794655324757}
   suitAnimator: {fileID: 6124871064604411264}
-  isInChamber: 1
   maxArmor: {fileID: 11400000, guid: 9f094fcab9666024789dbc3b02b245c4, type: 2}
   currentArmor: {fileID: 11400000, guid: bbe8e233daded944ba56b177e41a3c8b, type: 2}
   controller: {fileID: 0}
-  moveSpeed: 7.5
+  moveSpeed: 10
 --- !u!114 &8389368740534766012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +453,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stacks: 0
+  maxStacks: 5
+  explodeCooldown: 3
+  explodeRadius: 3
+  explodeDamage: 3
   timeBeforeLoseStack: 1.5
 --- !u!114 &613475566414098308
 MonoBehaviour:
@@ -500,7 +504,30 @@ MonoBehaviour:
   barragePrefab: {fileID: 3241821907134880668, guid: ae02fcdb667f2e44ca78d194df9524a3,
     type: 3}
   pinPlacementRange: 5
+  pinDestroyTime: 5
   placedPin: {fileID: 0}
+--- !u!114 &4023004794655324757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415735716381575510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cb80dbb44893c479194d73bd4061c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: Fire3
+  available: 1
+  cost: 1
+  damage: 10
+  multiplier: 1
+  hasCooldown: 1
+  cooldown: 1
+  speed: 50
+  effects: {fileID: 8669992192666496880, guid: c16d44029cf0d8343a8a8314f2f91607, type: 3}
+  spawnPosition: {fileID: 170448343562906294}
 --- !u!1 &2828673870562435999
 GameObject:
   m_ObjectHideFlags: 0

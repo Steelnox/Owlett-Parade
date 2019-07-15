@@ -37,7 +37,6 @@ public class LightKickAndBack : Skill
 
     private void GetBack()
     {
-
         RaycastHit hit;
         Ray ray = new Ray(controller.transform.position, -controller.transform.forward);
 
@@ -45,16 +44,7 @@ public class LightKickAndBack : Skill
 
         Vector3 hitPoint = controller.transform.position + (-controller.transform.forward * backRange);
 
-        if (Physics.Raycast(ray, out hit, backRange, layer_mask))
-        {
-            print("Ye   " + hit.transform.gameObject);
-
-            hitPoint = hit.point + controller.transform.forward;
-        }
-        else
-        {
-            print("No");
-        }
+        if (Physics.Raycast(ray, out hit, backRange, layer_mask)) { hitPoint = hit.point + controller.transform.forward; }
 
         controller.transform.position = hitPoint;
     }
