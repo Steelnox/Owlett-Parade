@@ -335,8 +335,8 @@ GameObject:
   - component: {fileID: 2591058608857661780}
   - component: {fileID: 1872987004870559629}
   - component: {fileID: 2591058608857661783}
-  - component: {fileID: 7641374333622980347}
   - component: {fileID: 7204109915569694079}
+  - component: {fileID: 4321287854988073905}
   - component: {fileID: 5667974946781715078}
   - component: {fileID: 3757465983326086931}
   m_Layer: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
   passive: {fileID: 1872987004870559629}
   attack: {fileID: 2591058608857661783}
   ability1: {fileID: 7204109915569694079}
-  ability2: {fileID: 7641374333622980347}
+  ability2: {fileID: 4321287854988073905}
   suitAnimator: {fileID: 2591058608857661777}
   maxArmor: {fileID: 11400000, guid: dcbaa3efcbf33be4fbf8f34229990d1c, type: 2}
   currentArmor: {fileID: 11400000, guid: b80c0ff9eebae5941bd6db0e6b2777d6, type: 2}
@@ -447,28 +447,6 @@ MonoBehaviour:
   speed: 150
   effects: {fileID: 2787349478881627419, guid: 9b1bc80ea65acb941aa762289b31954e, type: 3}
   spawnPosition: {fileID: 2591058609179629295}
---- !u!114 &7641374333622980347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591058608857661781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84cb80dbb44893c479194d73bd4061c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: Fire2
-  available: 1
-  cost: 0
-  damage: 1
-  multiplier: 1
-  hasCooldown: 1
-  cooldown: 0
-  speed: 0
-  effects: {fileID: 484901359436087951, guid: 27b0e7cf5abe23c4795f5dd5c0f8b695, type: 3}
-  spawnPosition: {fileID: 2591058609179629295}
 --- !u!114 &7204109915569694079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8f78b04bc62c947b44ed55fab0bd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: Fire3
+  button: Fire2
   available: 1
   cost: 0
   damage: 1
@@ -495,6 +473,27 @@ MonoBehaviour:
   initalSpeed: 0
   brokeMark: 0
   colliderTrigger: {fileID: 5667974946781715078}
+--- !u!114 &4321287854988073905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591058608857661781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee29b7a0d34900418743287c9c882e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: Fire3
+  available: 1
+  cost: 0
+  damage: 1
+  multiplier: 1
+  hasCooldown: 1
+  cooldown: 1
+  spawnPosition: {fileID: 2591058609179629295}
+  backRange: 5
 --- !u!136 &5667974946781715078
 CapsuleCollider:
   m_ObjectHideFlags: 0
