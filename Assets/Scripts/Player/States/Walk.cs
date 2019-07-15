@@ -67,11 +67,24 @@ public class Walk : State
     {
         if (!controller) return;
         var targetSpeed = controller.movement * walkSpeed;
+        targetSpeed.y = CheckFloor() ? 0 : Physics.gravity.y;
 
         controller.rigidBody.velocity = Vector3.SmoothDamp(controller.rigidBody.velocity, targetSpeed, ref velocitySmoothing, smoothSpeedValue);
 
         Vector3 rotation = Vector3.RotateTowards(controller.transform.forward, controller.movement, rotationSpeed * Time.deltaTime, 0);
 
         controller.transform.forward = rotation;
+    }
+
+    public bool CheckFloor()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(controller.GetComponent<CapsuleCollider>().bounds.min, Vector3.down);
+
+        int layer_mask = LayerMask.GetMask("Default");
+
+        if (Physics.Raycast(ray, out hit, 0.2f, layer_mask)) return true;
+
+        return false;
     }
 }

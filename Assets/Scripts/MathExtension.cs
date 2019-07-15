@@ -20,4 +20,11 @@ public static class MathExtension
 
         return mousePosition;
     }
+
+    public static Vector3 ForwardWithoutY(Transform from, Vector3 to)
+    {
+        to.y = from.position.y;
+
+        return (to - from.position).normalized;
+    }
 }

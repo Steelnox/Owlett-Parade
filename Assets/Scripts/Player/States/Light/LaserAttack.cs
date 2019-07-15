@@ -11,7 +11,7 @@ public class LaserAttack : Skill
 
     public override void Enter()
     {
-        controller.transform.LookAt(MathExtension.MouseWorldPosition("Floor"));
+        controller.transform.forward = MathExtension.ForwardWithoutY(transform, MathExtension.MouseWorldPosition("Floor"));
         controller.suitAnimator.SetTrigger("Attack");
     }
 
