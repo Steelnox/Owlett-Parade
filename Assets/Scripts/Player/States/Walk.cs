@@ -86,7 +86,7 @@ public class Walk : State
 
         Ray ray = new Ray(rayOrigin, Vector3.down);
 
-        if (Physics.Raycast(ray, out hit, 0.5f, LayerMask.GetMask("Floor"))) return true;
+        if (Physics.Raycast(ray, out hit, 0.2f, LayerMask.GetMask("Floor"))) return true;
 
         return false;
     }
