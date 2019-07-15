@@ -67,7 +67,8 @@ public class Walk : State
     {
         if (!controller) return;
         var targetSpeed = controller.movement * walkSpeed;
-        targetSpeed.y = CheckFloor() ? 0 : Physics.gravity.y;
+
+        targetSpeed.y = CheckStairs() ? 0 : Physics.gravity.y;
 
         controller.rigidBody.velocity = Vector3.SmoothDamp(controller.rigidBody.velocity, targetSpeed, ref velocitySmoothing, smoothSpeedValue);
 
@@ -81,9 +82,20 @@ public class Walk : State
         RaycastHit hit;
         Ray ray = new Ray(controller.GetComponent<CapsuleCollider>().bounds.min, Vector3.down);
 
-        int layer_mask = LayerMask.GetMask("Default");
+        if (Physics.Raycast(ray, out hit, 0.2f)) return true;
 
-        if (Physics.Raycast(ray, out hit, 0.2f, layer_mask)) return true;
+        return false;
+    }
+
+    public bool CheckStairs()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(controller.GetComponent<CapsuleCollider>().bounds.min, Vector3.down);
+
+        if (Physics.Raycast(ray, out hit, 0.2f))
+        {
+            if (hit.transform.tag == "Stair") return true;
+        }
 
         return false;
     }

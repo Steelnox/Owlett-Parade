@@ -10,6 +10,10 @@ public class LightPassive : MonoBehaviour
     public List<Enemy> oldMarkedEnemies = new List<Enemy>();
     public List<Enemy> jumpedEnemies = new List<Enemy>();
 
+    public GameObject markPrefab;
+
+    public List<LightMark> marks = new List<LightMark>();
+
     public float markedAgainCooldown = 3f;
 
     private void Awake()
@@ -30,7 +34,16 @@ public class LightPassive : MonoBehaviour
 
     public void MarkEnemy(Enemy enemy)
     {
-        if (!oldMarkedEnemies.Contains(enemy)) markedEnemies.Add(enemy);
+        if (oldMarkedEnemies.Contains(enemy)) return;
+
+        markedEnemies.Add(enemy);
+
+        GameObject mark = Instantiate(markPrefab, enemy.transform.position, Quaternion.identity);
+
+        LightMark lightMark = mark.GetComponent<LightMark>();
+
+        lightMark.currentEnemy = enemy;
+        marks.Add(lightMark);
     }
 
     public bool BreakMark(Enemy enemy)
@@ -38,6 +51,17 @@ public class LightPassive : MonoBehaviour
         if (markedEnemies.Contains(enemy))
         {
             markedEnemies.Remove(enemy);
+
+            foreach (LightMark mark in marks)
+            {
+                if (mark.currentEnemy == enemy)
+                {
+                    marks.Remove(mark);
+                    Destroy(mark.gameObject);
+
+                    break;
+                }
+            }
 
             StartCoroutine(CanBeMarkedAgain(enemy));
 

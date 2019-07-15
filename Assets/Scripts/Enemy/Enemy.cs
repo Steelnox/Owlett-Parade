@@ -66,6 +66,11 @@ public abstract class Enemy : MonoBehaviour
     //Functions that ALL enemies will have, add if needed (override later with it's own implementation)
     public virtual void OnHit(int damage)
     {
+        if (Controller.instance.currentSuit.suitType == SuitType.LIGHT || Controller.instance.chamberSuit.suitType == SuitType.LIGHT)
+        {
+            LightPassive.instance.MarkEnemy(this);
+        }
+
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         if (currentHealth == 0) this.gameObject.SetActive(false);
         if (stagger) ChangeState(staggerState);

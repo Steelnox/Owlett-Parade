@@ -23,7 +23,8 @@ public class LightDash : Skill
 
         colliderTrigger.isTrigger = true;
 
-        if (mouseDirection) controller.transform.forward = (MathExtension.MouseWorldPosition("Floor") - controller.transform.position).normalized;
+        if (mouseDirection)
+            controller.transform.forward = MathExtension.ForwardWithoutY(transform, MathExtension.MouseWorldPosition("Floor"));
 
         controller.rigidBody.velocity = controller.transform.forward * dashSpeed;
     }
@@ -52,12 +53,13 @@ public class LightDash : Skill
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Monster"))
+        if (controller.currentState == this && other.CompareTag("Monster") && !brokeMark)
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.OnHit(damage);
 
             brokeMark = LightPassive.instance.BreakMark(enemy);
+
+            enemy.OnHit(brokeMark ? damage * 2 : damage);
         }
     }
 }
