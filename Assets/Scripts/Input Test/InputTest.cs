@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InputTest : MonoBehaviour
+{
+    
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetAxisRaw ("Ability2 Xbox") != 0)
+        {
+            Debug.Log("x");
+        }
+    }
+}
