@@ -9,7 +9,7 @@ public class SuitValue : ScriptableObject, ISerializationCallbackReceiver
     private Suit runtimeValue;
     public Suit RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
-    public Suit value;
+    [SerializeField] private Suit value;
 
     public void OnAfterDeserialize() { runtimeValue = value; }
 

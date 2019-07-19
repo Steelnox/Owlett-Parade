@@ -9,7 +9,7 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     private float runtimeValue;
     public float RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
-    public float value;
+    [SerializeField] private float value;
 
     public void OnAfterDeserialize() { runtimeValue = value; }
 

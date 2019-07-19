@@ -60,7 +60,7 @@ public class Dash : State
 
         reloading = true;
 
-        CooldownManager.instance.SetCooldownAction(dashReloadTime.value, GainCharge);
+        CooldownManager.instance.SetCooldownAction(dashReloadTime.RuntimeValue, GainCharge);
     }
 
     public void GainCharge()

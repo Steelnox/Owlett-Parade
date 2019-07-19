@@ -9,7 +9,7 @@ public class IntValue : ScriptableObject, ISerializationCallbackReceiver
     private int runtimeValue;
     public int RuntimeValue { get => runtimeValue; set { runtimeValue = value; OnValueChange?.Invoke(); } }
 
-    public int value;
+    [SerializeField] private int value;
 
     public void OnAfterDeserialize() { runtimeValue = value; }
 
