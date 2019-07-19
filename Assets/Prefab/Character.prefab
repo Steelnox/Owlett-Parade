@@ -80,7 +80,7 @@ MonoBehaviour:
   allSuits:
   - {fileID: 3555529928931888308}
   - {fileID: 2488276488342508227}
-  - {fileID: 0}
+  - {fileID: 262467861000161780}
   currentSuitValue: {fileID: 11400000, guid: aed71c751a791f94281ede146da2dce7, type: 2}
   chamberSuitValue: {fileID: 11400000, guid: 18c93f2b7f5f1c74ca18c4f9f0c6a1a5, type: 2}
   suitAnimator: {fileID: 3555529928931888305}
