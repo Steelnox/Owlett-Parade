@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 179590937343326195}
   - component: {fileID: 1683110298310255386}
   - component: {fileID: 7661070504711610462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6563989927992830735}
   - component: {fileID: 8315113213617000397}
   - component: {fileID: 3500159956532715130}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ranged_enemy
   m_TagString: Monster
   m_Icon: {fileID: 0}

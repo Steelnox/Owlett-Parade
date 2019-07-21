@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7390946849944343964}
   - component: {fileID: 3171579431062539380}
   - component: {fileID: 4380634862807827266}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3240708374693924893}
   - component: {fileID: 9176934104933608385}
   - component: {fileID: 7195664772935237354}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: trash_enemy
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -189,10 +189,10 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   damage: 1
-  speed: 2
+  speed: 5
   enemyScore: 2
-  distanceToChase: 10
-  distanceToAttack: 5
+  distanceToChase: 12
+  distanceToAttack: 10
   CanStagger: 0
   stagger: 1
   chase: {fileID: 1912877420}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 6315803438924572492}
   - component: {fileID: 4296191163805106528}
   - component: {fileID: 858200978580166472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 5255879470866005236}
   - component: {fileID: 6192264649818123440}
   - component: {fileID: 6500708746143212615}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 2128431917231277526}
   - component: {fileID: 5569355723776285217}
   - component: {fileID: 3966754960039321500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eyes1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 4827859889311221752}
   - component: {fileID: 2074708356128847644}
   - component: {fileID: 3520907239396763870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 4267087658763509275}
   - component: {fileID: 4444103569512389631}
   - component: {fileID: 831297407672133242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 6431324478255815603}
   - component: {fileID: 7154554561539684981}
   - component: {fileID: 4763043432452135671}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Legs3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 396786054482747227}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PartsBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 4863022123662924755}
   - component: {fileID: 5218424660961419411}
   - component: {fileID: 1116992814465981675}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eyes2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
