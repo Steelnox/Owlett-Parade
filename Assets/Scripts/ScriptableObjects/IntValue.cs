@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "IntValue")]
+[Serializable]
 public class IntValue : ScriptableObject, ISerializationCallbackReceiver
 {
     public delegate void OnValueChangeDelegate();

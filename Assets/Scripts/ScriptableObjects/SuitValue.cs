@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "SuitValue")]
+[Serializable]
 public class SuitValue : ScriptableObject, ISerializationCallbackReceiver
 {
     public delegate void OnValueChangeDelegate();
