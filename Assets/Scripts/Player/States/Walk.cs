@@ -54,7 +54,7 @@ public class Walk : State
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
+        if (Input.GetButtonDown("QuickDash") && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
         {
             controller.movement = Vector3.zero;
             controller.ChangeState(controller.dash);

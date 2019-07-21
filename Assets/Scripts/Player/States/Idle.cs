@@ -15,7 +15,7 @@ public class Idle : State
     {
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) controller.ChangeState(controller.walk);
 
-        if (Input.GetKeyDown(KeyCode.Space) && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
+        if (Input.GetButtonDown("QuickDash") && controller.dash.GetComponent<Dash>().charges.RuntimeValue > 0)
         {
             controller.ChangeState(controller.dash);
 

@@ -61,7 +61,7 @@ public class Controller : MonoBehaviour
     {
         if (currentState == idle || currentState == walk)
         {
-            if (Input.GetKeyDown(KeyCode.Q)) ChangeSuit();
+            if (Input.GetButtonDown("ChamberSuit")) ChangeSuit();
 
             if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
 
@@ -82,6 +82,10 @@ public class Controller : MonoBehaviour
 
     public void ChangeSuit()
     {
+        if (currentSuit == noSuit) return;
+
+        chamberSuit = chamberSuit == noSuit ? null : chamberSuit;
+
         if (chamberSuit)
         {
             currentSuit.gameObject.SetActive(false);

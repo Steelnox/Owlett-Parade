@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c9cdcfc2b531641af657234c70edc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: Fire2
+  button: StealCloth
   available: 1
   cost: 0
   damage: 10
@@ -269,6 +269,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 628477795355181016, guid: 788c48d890b52a74788f2cb3f4f1a4c7,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 3555529927941697223}
+    - target: {fileID: 2465649569389614619, guid: 788c48d890b52a74788f2cb3f4f1a4c7,
+        type: 3}
+      propertyPath: button
+      value: BasicAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437476299668173230, guid: 788c48d890b52a74788f2cb3f4f1a4c7,
+        type: 3}
+      propertyPath: button
+      value: Ability 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 788c48d890b52a74788f2cb3f4f1a4c7, type: 3}
 --- !u!4 &6761573478861916369 stripped
@@ -366,10 +381,35 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 3555529927941697223}
+    - target: {fileID: 4321287854988073905, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: button
+      value: Ability2 Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591058608857661783, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: button
+      value: BasicAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591058608857661783, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: cost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5667974946781715078, guid: ee15c3d666025e94eab031c52dd45c38,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204109915569694079, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: button
+      value: Ability1 Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204109915569694079, guid: ee15c3d666025e94eab031c52dd45c38,
+        type: 3}
+      propertyPath: cooldown
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee15c3d666025e94eab031c52dd45c38, type: 3}
@@ -499,10 +539,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1905142135628595202, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: button
+      value: Ability1 Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 613475566414098308, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: button
+      value: BasicAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 613475566414098308, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: cost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 750923135305232281, guid: 2a78cf91763460548920074c3b323869,
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023004794655324757, guid: 2a78cf91763460548920074c3b323869,
+        type: 3}
+      propertyPath: button
+      value: Ability2 Key
       objectReference: {fileID: 0}
     - target: {fileID: 5957400516653405153, guid: 2a78cf91763460548920074c3b323869,
         type: 3}

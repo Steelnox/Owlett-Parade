@@ -40,6 +40,11 @@ public class AreaRainAttack : Skill
 
         controller.ReturnToBaseState();
 
-        base.Exit();
+    }
+
+    public override void Exit()
+    {
+        if (!placedPin) base.Exit();
+
     }
 }
