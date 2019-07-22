@@ -11,7 +11,7 @@ public abstract class State : MonoBehaviour
 
 public abstract class Skill : State
 {
-    protected Controller controller;
+    protected Controller controller => Controller.instance;
 
     public string button;
     public bool available = true;
@@ -23,11 +23,6 @@ public abstract class Skill : State
 
     public bool hasCooldown = true;
     public float cooldown = 0f;
-
-    public void Start()
-    {
-        controller = Controller.instance;
-    }
 
     public override void Exit()
     {

@@ -18,18 +18,21 @@ public class LightDash : Skill
 
     public override void Enter()
     {
-        if (!controller) controller = Controller.instance;
+        controller.MoveRestriction = MovementRestriction.DASHING;
+
+        controller.suitAnimator.SetBool("Moving", false);
         controller.suitAnimator.SetBool("Dashing", true);
 
         colliderTrigger.isTrigger = true;
 
         if (mouseDirection)
             controller.transform.forward = MathExtension.ForwardWithoutY(transform, MathExtension.MouseWorldPosition("Floor"));
-
     }
 
     public override void Execute()
     {
+        controller.characterController.Move(controller.transform.forward * dashSpeed * Time.deltaTime);
+
         timer += Time.deltaTime;
 
         if (timer >= dashDuration)
@@ -44,6 +47,8 @@ public class LightDash : Skill
     public override void Exit()
     {
         if (!brokeMark) base.Exit();
+
+        controller.MoveRestriction = MovementRestriction.FREE;
 
         brokeMark = false;
         controller.suitAnimator.SetBool("Dashing", false);
