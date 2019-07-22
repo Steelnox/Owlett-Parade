@@ -26,7 +26,6 @@ public class LightDash : Skill
         if (mouseDirection)
             controller.transform.forward = MathExtension.ForwardWithoutY(transform, MathExtension.MouseWorldPosition("Floor"));
 
-        controller.rigidBody.velocity = controller.transform.forward * dashSpeed;
     }
 
     public override void Execute()
@@ -48,7 +47,6 @@ public class LightDash : Skill
 
         brokeMark = false;
         controller.suitAnimator.SetBool("Dashing", false);
-        controller.rigidBody.velocity = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)

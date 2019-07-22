@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
 
     public CooldownManager cooldownManager;
     public Vector3 movement;
-    public Rigidbody rigidBody;
+    //public Rigidbody rigidBody;
 
     [Header("Basic States")]
     private StateMachine stateMachine = new StateMachine();
@@ -28,8 +28,7 @@ public class Controller : MonoBehaviour
 
     [Space]
     public State idle;
-    public State walk;
-    public State dash;
+    public Dash dash;
     public Skill stealSuit;
 
     [Header("Suit")]
@@ -49,6 +48,18 @@ public class Controller : MonoBehaviour
     public float invulnerabilityTime = 1;
     public bool invulnerable = false;
 
+    [Header("Movement")]
+
+    public CharacterController characterController;
+
+    private Vector3 velocitySmoothing;
+
+    public float smoothSpeedValue = .1f;
+    public float walkSpeed;
+    public float rotationSpeed = 10f;
+
+    public MovementRestriction MoveRestriction = MovementRestriction.FREE;
+
     private void Start()
     {
         cooldownManager = CooldownManager.instance;
@@ -59,20 +70,20 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        if (currentState == idle || currentState == walk)
+        if (MoveRestriction == MovementRestriction.FREE)
+        {
+            GetInput();
+            Move();
+        }
+
+        if (currentState == idle)
         {
             if (Input.GetButtonDown("ChamberSuit")) ChangeSuit();
-
-            if (Input.GetButtonDown(stealSuit.button) && stealSuit.available) ChangeState(stealSuit);
-
-            if (currentSuit.attack && Input.GetButtonDown(currentSuit.attack.button) && currentSuit.attack.available)
-                ChangeState(currentSuit.attack);
-
-            if (currentSuit.ability1 && Input.GetButtonDown(currentSuit.ability1.button) && currentSuit.ability1.available)
-                ChangeState(currentSuit.ability1);
-
-            if (currentSuit.ability2 && Input.GetButtonDown(currentSuit.ability2.button) && currentSuit.ability2.available)
-                ChangeState(currentSuit.ability2);
+            if (Input.GetButtonDown("QuickDash") && dash.charges.RuntimeValue > 0) ChangeState(dash);
+            if (SkillAvailable(stealSuit)) ChangeState(stealSuit);
+            if (SkillAvailable(currentSuit.attack)) ChangeState(currentSuit.attack);
+            if (SkillAvailable(currentSuit.ability1)) ChangeState(currentSuit.ability1);
+            if (SkillAvailable(currentSuit.ability2)) ChangeState(currentSuit.ability2);
         }
 
         stateMachine.ExecuteState();
@@ -105,6 +116,8 @@ public class Controller : MonoBehaviour
         {
             chamberSuitValue.RuntimeValue = noSuit;
         }
+
+        walkSpeed = currentSuit.moveSpeed;
     }
 
     #endregion
@@ -118,16 +131,55 @@ public class Controller : MonoBehaviour
         currentState = stateMachine.currentState;
     }
 
+    public bool SkillAvailable(Skill skill)
+    {
+        return (skill != null && Input.GetButtonDown(skill.button) && skill.available);
+    }
+
     public void ReturnToBaseState()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        ChangeState(idle);
+    }
+
+    #endregion
+
+    #region Movement
+
+    private void GetInput()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+
+        movement = new Vector3(x, 0, z).normalized;
+
+        suitAnimator.SetBool("Moving", !(x == 0 && z == 0));
+
+
+    }
+
+    public void Move()
+    {
+        var targetSpeed = movement.normalized * walkSpeed + Physics.gravity;
+
+        characterController.Move(targetSpeed * Time.deltaTime);
+
+        transform.forward = Vector3.RotateTowards(transform.forward, movement, rotationSpeed * Time.deltaTime, 0);
+    }
+
+    public bool CheckFloor(bool stairs)
+    {
+        RaycastHit hit;
+        Vector3 rayOrigin = new Vector3(transform.position.x, characterController.bounds.min.y, transform.position.z);
+
+        Ray ray = new Ray(rayOrigin, Vector3.down);
+
+        if (Physics.Raycast(ray, out hit, 0.2f, LayerMask.GetMask("Floor")))
         {
-            ChangeState(walk);
+            if (stairs && hit.transform.tag == "Stair") return true;
+            else return true;
         }
-        else
-        {
-            ChangeState(idle);
-        }
+
+        return false;
     }
 
     #endregion

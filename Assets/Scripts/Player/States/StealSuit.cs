@@ -16,11 +16,6 @@ public class StealSuit : Skill
         controller.ReturnToBaseState();
     }
 
-    public override void Execute()
-    {
-        controller.rigidBody.velocity = Vector3.zero;
-    }
-
     public override void Exit()
     {
         base.Exit();

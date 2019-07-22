@@ -10,7 +10,7 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
     public int MaxHealth { get => maxHealth.RuntimeValue; set => maxHealth.RuntimeValue = value; }
     public int CurrentHealth { get => currentHealth.RuntimeValue; set => currentHealth.RuntimeValue = value; }
 
-    [SerializeField] private Controller controller => Controller.instance;
+    [SerializeField] private Controller Controller => Controller.instance;
 
     public void GetDamaged(int amount)
     {
@@ -28,17 +28,17 @@ public class SuitHealthSystem : MonoBehaviour, IHealth
 
     public void OutOfHealth()
     {
-        controller.currentSuit = null;
+        Controller.currentSuit = null;
 
-        if (controller.chamberSuit != null)
+        if (Controller.chamberSuit != null)
         {
-            controller.chamberSuit.EquipSuit();
-            controller.chamberSuit = null;
-            controller.chamberSuitValue.RuntimeValue = controller.noSuit;
+            Controller.chamberSuit.EquipSuit();
+            Controller.chamberSuit = null;
+            Controller.chamberSuitValue.RuntimeValue = Controller.noSuit;
         }
         else
         {
-            controller.noSuit.EquipSuit();
+            Controller.noSuit.EquipSuit();
         }
 
         gameObject.SetActive(false);

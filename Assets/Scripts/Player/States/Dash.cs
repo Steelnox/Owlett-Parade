@@ -29,27 +29,37 @@ public class Dash : State
 
         controller = Controller.instance;
 
+        controller.MoveRestriction = MovementRestriction.DASHING;
+        controller.suitAnimator.SetBool("Moving", false);
         controller.suitAnimator.SetBool("Dashing", true);
         controller.invulnerable = true;
 
-        if (mouseDirection) controller.transform.forward = (MathExtension.MouseWorldPosition("Floor") - controller.transform.position).normalized;
+        Vector3 direction = (MathExtension.MouseWorldPosition("Floor") - controller.transform.position).normalized;
 
-        controller.rigidBody.velocity = controller.transform.forward * dashSpeed;
+        if (mouseDirection) controller.transform.forward = direction;
 
-        StartCoroutine(EndDash());
+        StartCoroutine(DoDash());
     }
 
     public override void Exit()
     {
+        controller.MoveRestriction = MovementRestriction.FREE;
         controller.suitAnimator.SetBool("Dashing", false);
         controller.invulnerable = false;
-
-        controller.rigidBody.velocity = Vector3.zero;
     }
 
-    public IEnumerator EndDash()
+    public IEnumerator DoDash()
     {
-        yield return new WaitForSeconds(dashDuration);
+        float timer = 0f;
+
+        while (timer < dashDuration)
+        {
+            controller.characterController.Move(controller.transform.forward * dashSpeed * Time.deltaTime);
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
 
         controller.ReturnToBaseState();
     }

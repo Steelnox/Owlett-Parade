@@ -12,11 +12,6 @@ public class ConeAttack : Skill
         controller.suitAnimator.SetTrigger("Attack");
     }
 
-    public override void Execute()
-    {
-        controller.rigidBody.velocity = Vector3.zero;
-    }
-
     public void OnAttack()
     {
         if (controller.currentState != this) return;

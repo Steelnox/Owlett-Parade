@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 3555529927941697223}
   - component: {fileID: 3894820478716779728}
   - component: {fileID: 3555529927941697220}
-  - component: {fileID: 3555529927941697221}
   - component: {fileID: 3555529927941697226}
   - component: {fileID: 545359119411917514}
   - component: {fileID: 3555529927941697227}
-  - component: {fileID: 3555529927941697224}
+  - component: {fileID: 1259423494}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -68,10 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownManager: {fileID: 3555529927941697222}
   movement: {x: 0, y: 0, z: 0}
-  rigidBody: {fileID: 3555529927941697227}
   currentState: {fileID: 0}
   idle: {fileID: 3555529927941697220}
-  walk: {fileID: 3555529927941697221}
   dash: {fileID: 3555529927941697226}
   stealSuit: {fileID: 545359119411917514}
   currentSuit: {fileID: 3555529928931888308}
@@ -86,6 +83,11 @@ MonoBehaviour:
   suitAnimator: {fileID: 3555529928931888305}
   invulnerabilityTime: 1
   invulnerable: 0
+  characterController: {fileID: 1259423494}
+  smoothSpeedValue: 0.1
+  walkSpeed: 10
+  rotationSpeed: 10
+  MoveRestriction: 0
 --- !u!114 &3894820478716779728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,21 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f72fb622efe4d4fb9fb3d2a02b81a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3555529927941697221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3555529927941697225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6ea62697bdbb94ba7187ce5c16b142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoothSpeedValue: 0
-  walkSpeed: 10
-  rotationSpeed: 15
 --- !u!114 &3555529927941697226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +170,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &3555529927941697224
-CapsuleCollider:
+--- !u!143 &1259423494
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,9 +180,13 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  serializedVersion: 2
   m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &800712851596686892
 PrefabInstance:
