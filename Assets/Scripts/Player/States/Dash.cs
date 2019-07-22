@@ -17,12 +17,14 @@ public class Dash : State
 
     public FloatValue dashReloadTime;
 
+    public string button = "QuickDash";
+
     private bool reloading;
+
+    public bool Available => charges.RuntimeValue > 1 && Input.GetButtonDown(button);
 
     public override void Enter()
     {
-        if (charges.RuntimeValue < 1) { controller.ReturnToBaseState(); return; }
-
         charges.RuntimeValue -= 1;
 
         Reload();

@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
     public Skill stealSuit;
 
     [Header("Suit")]
-
+    public string changeSuit = "ChamberSuit";
     public Suit currentSuit;
     public Suit chamberSuit;
     public Suit noSuit;
@@ -70,16 +70,14 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        if (MoveRestriction == MovementRestriction.FREE)
-        {
-            GetInput();
-            Move();
-        }
+        if (MoveRestriction == MovementRestriction.FREE) Move();
 
         if (currentState == idle)
         {
-            if (Input.GetButtonDown("ChamberSuit")) ChangeSuit();
-            if (Input.GetButtonDown("QuickDash") && dash.charges.RuntimeValue > 0) ChangeState(dash);
+            if (Input.GetButtonDown(changeSuit)) ChangeSuit();
+
+            if (dash.Available) ChangeState(dash);
+
             if (SkillAvailable(stealSuit)) ChangeState(stealSuit);
             if (SkillAvailable(currentSuit.attack)) ChangeState(currentSuit.attack);
             if (SkillAvailable(currentSuit.ability1)) ChangeState(currentSuit.ability1);
@@ -153,12 +151,12 @@ public class Controller : MonoBehaviour
         movement = new Vector3(x, 0, z).normalized;
 
         suitAnimator.SetBool("Moving", !(x == 0 && z == 0));
-
-
     }
 
     public void Move()
     {
+        GetInput();
+
         var targetSpeed = movement.normalized * walkSpeed + Physics.gravity;
 
         characterController.Move(targetSpeed * Time.deltaTime);
