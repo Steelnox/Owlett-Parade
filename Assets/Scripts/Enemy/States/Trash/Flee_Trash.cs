@@ -33,6 +33,8 @@ public class Flee_Trash : State
 
         if (trash.distanceToPlayer <= trash.distanceToAttack && trash.distanceToPlayer > trash.distanceToFlee) trash.ChangeState(trash.prepAttack);
         else if (trash.distanceToPlayer <= trash.distanceToChase && trash.distanceToPlayer > trash.distanceToAttack) trash.ChangeState(trash.chase);
+        else if (trash.distanceToPlayer > trash.distanceToChase) trash.ChangeState(trash.patrol);
+
 
 
     }
